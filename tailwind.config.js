@@ -6,7 +6,11 @@ export default {
   ],
   darkMode:'class',
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        "urbanist" : ['urbanist', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }

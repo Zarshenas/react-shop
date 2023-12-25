@@ -1,4 +1,4 @@
-import ThemeSwitcher from "./ThemeSwitcher"
+import ThemeSwitcher from "./components/theme/ThemeSwitcher"
 
 function App() {
 
