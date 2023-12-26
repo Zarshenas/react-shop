@@ -2,10 +2,18 @@ import { useEffect, useState } from "react";
 import api from "../../services/axiosConfig";
 
 function useProducts() {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
   useEffect(() => {
-    api.get("products").then((res) => setProducts(res));
+    const dataFetcher = async () => {
+      try {
+        const response = await api.get("/products");
+        setProducts(response);
+      } catch (err) {
+        throw new Error("something went wrong while fetching data",err);
+      }
+    }
+    dataFetcher()
   }, []);
-  return { products, setProducts };
+  return  products ;
 }
 export default useProducts;

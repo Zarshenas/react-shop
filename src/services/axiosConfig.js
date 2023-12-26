@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api = axios.create({
   // default configurations
-  baseURL: "https://api.escuelajs.co/api/v1/",
+  baseURL: "https://api.escuelajs.co/api/v1",
 });
 
 api.interceptors.response.use(

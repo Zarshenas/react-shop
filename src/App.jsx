@@ -1,12 +1,26 @@
-import ThemeSwitcher from "./components/theme/ThemeSwitcher"
+import { Route, Routes, Navigate } from "react-router-dom";
+import ThemeSwitcher from "./components/theme/ThemeSwitcher";
+import Products from "./pages/Products";
+import NotFound from "./pages/NotFound";
+import CheckoutPage from "./pages/CheckoutPage";
+import DetailPage from "./pages/DetailPage";
+import ProductsProvider from "./contexts/ProductsProvider";
 
 function App() {
   return (
     <>
-      <h1 className="text-pink-300 text-8xl font-bold text-center dark:text-white dark:bg-black">React Shop</h1>
-      <ThemeSwitcher/>
+    <ThemeSwitcher />
+    <ProductsProvider>
+      <Routes>
+        <Route index path="/" element={<Navigate to="/products" replace />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<DetailPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/*" element={<NotFound />} />
+      </Routes>
+    </ProductsProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

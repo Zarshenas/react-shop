@@ -12,6 +12,6 @@
     box-sizing: border-box;
   }
   body {
-    @apply font-urbanist;
+    @apply font-urbanist dark:bg-black dark:text-white;
   }
 }
