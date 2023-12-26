@@ -1,25 +1,21 @@
-import { createContext,useContext } from "react"
-import useProducts from "../utils/hooks/useProducts"
+import { createContext, useContext } from "react";
+import useProducts from "../utils/hooks/useProducts";
 
-const productsContext = createContext()
+const productsContext = createContext();
 
-
-function ProductsProvider({children}) {
-    const products  = useProducts()
+function ProductsProvider({ children }) {
+  const products = useProducts();
   return (
     <productsContext.Provider value={products}>
-        {children}
+      {children}
     </productsContext.Provider>
-  )
+  );
 }
 //import this hook and use it in the consumer to get instant access to data
 function useProductConsumer() {
-    const context = useContext(productsContext)
-    if (context === undefined) {
-        return []   
-    }
-    return context;
+  const context = useContext(productsContext);
+  return context;
 }
 
-export default ProductsProvider
-export {useProductConsumer}
+export default ProductsProvider;
+export { useProductConsumer };

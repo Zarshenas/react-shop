@@ -6,12 +6,15 @@
 
 
 @layer base {
+  :root{
+    @apply font-urbanist
+  }
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   body {
-    @apply font-urbanist dark:bg-black dark:text-white;
+    @apply m-auto dark:bg-grayshade-500 dark:text-white max-w-7xl min-h-screen py-3 px-14;
   }
 }
