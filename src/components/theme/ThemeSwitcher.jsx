@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { themes } from "../../constants/Themes";
+import { themes } from "../../utils/constants/Themes";
 import Theme from "./Theme";
 
 function ThemeSwitcher() {
