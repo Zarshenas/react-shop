@@ -16,6 +16,11 @@ function useProductConsumer() {
   const context = useContext(productsContext);
   return context;
 }
-
+function useGetProduct(id){
+  const context = useContext(productsContext);
+  if (context !== undefined) {
+    return context.find(product=> product.id === id)
+  }
+}
 export default ProductsProvider;
-export { useProductConsumer };
+export { useProductConsumer , useGetProduct};

@@ -4,10 +4,10 @@ import textShrink from "../utils/helpers/textShrink";
 
 function Product({ id, title, price, image, category, description }) {
   return (
-    <div className="py-10 px-7 border border-grayshade-300 rounded-xl dark:bg-grayshade-500 w-80">
+    <div className="py-7 px-7 border border-grayshade-300 rounded-xl dark:bg-grayshade-500 w-80">
       <Link to={`${id}`}>
         <img
-          className="w-full rounded-lg self-stretch h-72 min-h-52 mb-7"
+          className="w-full rounded-lg self-stretch h-72 min-h-52 mb-7 object-cover"
           src={image}
           alt=""
         />
@@ -16,7 +16,7 @@ function Product({ id, title, price, image, category, description }) {
         <p className="font-semibold text-xl mb-2 h-auto">{title}</p>
         <p className="text-grayshade-50 text-xs">
           {textShrink(description)}
-          <Link className="font-semibold text-white text-xs ml-1" to={`${id}`}>
+          <Link className="font-semibold text-white text-xs ml-1" to={`${id}`} state={{ some: "value" }}>
             Read More
           </Link>
         </p>
@@ -27,7 +27,7 @@ function Product({ id, title, price, image, category, description }) {
       <div className="flex">
         <div>
           <p className="text-grayshade-50 text-xs">Price</p>
-          <p className="font-semibold text-white text-lg">$ {price}</p>
+          <p className="font-semibold text-white text-lg">$ {price.toLocaleString()}</p>
         </div>
         <div>{/* /buttons 3 types */}</div>
       </div>
