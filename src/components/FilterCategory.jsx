@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../services/axiosConfig";
 import { TbCategoryPlus } from "react-icons/tb";
+import { ThreeDots } from "react-loader-spinner";
 
 function FilterCategory({ query: { query, setQuery } }) {
   const [catList, setCatList] = useState([]);
@@ -44,28 +45,49 @@ function FilterCategory({ query: { query, setQuery } }) {
       setSearchParams(searchParams);
     }
   };
-  
+
   return (
-    <div className=" ml-7 h-max text-xl font-medium dark:bg-grayshade-500 border border-grayshade-300 rounded-xl w-52 py-5">
+    <div className=" ml-7 h-max text-xl font-medium dark:bg-grayshade-500 border border-grayshade-300 rounded-xl w-2/12 pb-0 py-5">
       <p className="ml-2 flex items-center">
         {" "}
         <TbCategoryPlus className="mr-2 text-purpleshade-400" /> Categories :{" "}
       </p>
-      <ul className="font-extralight text-lg ">
-        <li className={`py-1 cursor-pointer px-2 bg-gradient-to-r from-grayshade-400 to-transparent my-3 ${selectedCat == id && 'border-l-2 border-purpleshade-400'}`} onClick={categoryHandler} id="0">
-          All
-        </li>
-        {catList.map(({ id, name }) => (
+      {!catList.length ? (
+        <ThreeDots
+          visible={true}
+          height="30"
+          width="30"
+          color="#703BF7"
+          radius="9"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClass="w-full flex justify-center my-4 mx-auto"
+        />
+      ) : (
+        <ul className="font-extralight text-lg ">
           <li
-            className={`py-1 cursor-pointer px-2 bg-gradient-to-r from-grayshade-400 to-transparent my-3 ${selectedCat == id && 'border-l-2 border-purpleshade-400'}`}
+            className={`py-1 cursor-pointer px-2 bg-gradient-to-r from-grayshade-400 to-transparent my-3 ${
+              selectedCat == 0 && "border-l-2 border-purpleshade-400"
+            }`}
             onClick={categoryHandler}
-            key={id}
-            id={id}
+            id="0"
           >
-            {name}
+            All
           </li>
-        ))}
-      </ul>
+          {catList.map(({ id, name }) => (
+            <li
+              className={`py-1 cursor-pointer px-2 bg-gradient-to-r from-grayshade-400 to-transparent my-3 ${
+                selectedCat == id && "border-l-2 border-purpleshade-400"
+              }`}
+              onClick={categoryHandler}
+              key={id}
+              id={id}
+            >
+              {name}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

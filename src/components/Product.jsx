@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 import textShrink from "../utils/helpers/textShrink";
-import { memo } from "react";
 
 function Product({ id, title, price, image, category, description }) {
   return (
