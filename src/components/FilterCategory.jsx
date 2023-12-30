@@ -26,6 +26,9 @@ function FilterCategory({ query: { query, setQuery } }) {
     if (searchParams.get("category")) {
       setQuery({ ...query, category: searchParams.get("category") });
     }
+    if(searchParams.get('category')){
+      setSelectedCat(searchParams.get('category'))
+    }
   }, []);
 
   const categoryHandler = (e) => {
