@@ -5,6 +5,7 @@ const productsContext = createContext();
 
 function ProductsProvider({ children }) {
   const products = useProducts();
+  
   return (
     <productsContext.Provider value={products}>
       {children}
@@ -14,7 +15,7 @@ function ProductsProvider({ children }) {
 //import this hook and use it in the consumer to get instant access to data
 function useProductConsumer() {
   const context = useContext(productsContext);
-  return context;
+    return context;
 }
 function useGetProduct(id){
   const context = useContext(productsContext);

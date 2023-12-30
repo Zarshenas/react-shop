@@ -1,5 +1,4 @@
 function ImageSlider({ imageList, setImgIndex, imgIndex }) {
-  console.log(imageList);
   return (
     <div className="flex justify-evenly">
       <div className="flex flex-col justify-around">
@@ -12,7 +11,7 @@ function ImageSlider({ imageList, setImgIndex, imgIndex }) {
           />
         ))}
       </div>
-      <img className="w-3/4 rounded-xl" src={imageList[imgIndex]} alt="" />
+      <img className="w-3/4 rounded-xl object-cover" src={imageList[imgIndex]} alt="" />
     </div>
   );
 }

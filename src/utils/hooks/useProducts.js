@@ -7,7 +7,7 @@ function useProducts() {
     const dataFetcher = async () => {
       try {
         const response = await api.get("/products");
-        setProducts(response.filter((item) => item.id<= 53));
+        setProducts(response.filter((item) => item));
       } catch (err) {
         throw new Error("something went wrong while fetching data",err);
       }

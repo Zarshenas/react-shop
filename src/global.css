@@ -17,7 +17,4 @@
   body {
     @apply m-auto dark:bg-grayshade-500 dark:text-white max-w-7xl min-h-screen py-3 px-14;
   }
-  /* input:focus {
-    outline:none; 
-} */
 }

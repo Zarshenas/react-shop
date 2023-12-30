@@ -14,7 +14,6 @@ export default function DetailPage() {
   useEffect(() => {
     if (product !== undefined) {
       setLoading(false);
-      console.log(product);
     }
   }, [product]);
 
@@ -30,7 +29,7 @@ export default function DetailPage() {
             setImgIndex={setImgIndex}
             imgIndex={imgIndex}
           />
-          <div className="p-8 flex flex-col justify-center">
+          <div className="p-8 w-9/12 flex flex-col justify-center">
             <p className="text-4xl font-semibold">{product.title}</p>
             <span className="bg-grayshade-300 inline-block border border-grayshade-200 py-2 px-3 text-xs rounded-full my-4 w-max">
               {product.category.name}

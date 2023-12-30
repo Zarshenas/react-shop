@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 
 import textShrink from "../utils/helpers/textShrink";
+import { memo } from "react";
 
 function Product({ id, title, price, image, category, description }) {
   return (
-    <div className="py-7 px-7 border border-grayshade-300 rounded-xl dark:bg-grayshade-500 w-80">
+    <div className="py-7 px-7 border border-grayshade-300 rounded-xl dark:bg-grayshade-500 w-72">
       <Link to={`${id}`}>
         <img
           className="w-full rounded-lg self-stretch h-72 min-h-52 mb-7 object-cover"
