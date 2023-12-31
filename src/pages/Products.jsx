@@ -35,12 +35,7 @@ function Products() {
             data.map((product) => (
               <Product
                 key={product.id}
-                id={product.id}
-                title={product.title}
-                price={product.price}
-                image={product.images[0]}
-                category={product.category.name}
-                description={product.description}
+                productData={product}
               />
             ))
           )}

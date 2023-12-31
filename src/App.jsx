@@ -5,20 +5,27 @@ import NotFound from "./pages/NotFound";
 import CheckoutPage from "./pages/CheckoutPage";
 import DetailPage from "./pages/DetailPage";
 import ProductsProvider from "./contexts/ProductsProvider";
+import { CartProvider } from "./contexts/CartProvider";
 
 function App() {
   return (
     <>
-    <ThemeSwitcher />
-    <ProductsProvider>
-      <Routes>
-        <Route index path="/" element={<Navigate to="/products" replace />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<DetailPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/*" element={<NotFound />} />
-      </Routes>
-    </ProductsProvider>
+      <ThemeSwitcher />
+      <CartProvider>
+        <ProductsProvider>
+          <Routes>
+            <Route
+              index
+              path="/"
+              element={<Navigate to="/products" replace />}
+            />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<DetailPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/*" element={<NotFound />} />
+          </Routes>
+        </ProductsProvider>
+      </CartProvider>
     </>
   );
 }
