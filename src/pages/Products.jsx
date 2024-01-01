@@ -18,29 +18,31 @@ function Products() {
 
   return (
     <>
-      <Search query={{ query, setQuery }} />
-      <div className="w-full flex">
-        <div className="w-10/12 grid  grid-cols-3 gap-7 justify-items-start">
-          {!data.length ? (
-            <Triangle
-              visible
-              height="200"
-              width="200"
-              color="#703BF7"
-              ariaLabel="triangle-loading"
-              wrapperStyle={{fontSize:"150px"}}
-              wrapperClass="w-full col-span-3 flex justify-center m-auto"
-            />
-          ) : (
-            data.map((product) => (
-              <Product
-                key={product.id}
-                productData={product}
+      <div className="wrapper">
+        <Search query={{ query, setQuery }} />
+        <div className="w-full flex">
+          <div className="w-10/12 grid  grid-cols-3 gap-7 justify-items-start">
+            {!data.length ? (
+              <Triangle
+                visible
+                height="200"
+                width="200"
+                color="#703BF7"
+                ariaLabel="triangle-loading"
+                wrapperStyle={{fontSize:"150px"}}
+                wrapperClass="w-full col-span-3 flex justify-center m-auto"
               />
-            ))
-          )}
+            ) : (
+              data.map((product) => (
+                <Product
+                  key={product.id}
+                  productData={product}
+                />
+              ))
+            )}
+          </div>
+          <FilterCategory query={{ query, setQuery }} />
         </div>
-        <FilterCategory query={{ query, setQuery }} />
       </div>
     </>
   );

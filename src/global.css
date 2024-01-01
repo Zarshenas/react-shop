@@ -14,7 +14,10 @@
     padding: 0;
     box-sizing: border-box;
   }
-  body {
-    @apply m-auto dark:bg-grayshade-500 dark:text-white max-w-7xl min-h-screen py-3 px-14;
+  body{
+    @apply dark:bg-grayshade-500 dark:text-white
+  }
+  .wrapper {
+    @apply m-auto max-w-7xl min-h-screen py-3 px-14;
   }
 }

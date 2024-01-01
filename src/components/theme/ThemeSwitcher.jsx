@@ -1,26 +1,51 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { themes } from "../../utils/constants/Themes";
 import Theme from "./Theme";
 
 function ThemeSwitcher() {
   const [isSwitcherOpen, setIsSwitcherOpen] = useState(false);
-  const [theme, setTheme] = useState("");
-
+  const [theme, setTheme] = useState();
+  const ref = useRef()
   useEffect(() => {
+    //just filling the theme state to not be empty
+    if (!theme) {
+      setTheme(themes.find((i) => i.mode === localStorage.theme));
+    }
+    //checking if localstorage has any data about theme
+    if (!localStorage.theme) {
+      localStorage.theme = "system";
+    }
+    
     if (
       localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+      (localStorage.theme === "system" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else if (localStorage.theme === "light") {
+        document.documentElement.classList.remove("dark");
+      }
+
+
+      const checkIfClickedOutside = e => {
+        if (ref.current && !ref.current.contains(e.target)) {
+          setIsSwitcherOpen(false);
+        }
+      }
+      document.addEventListener("click", checkIfClickedOutside)
+      return () => {
+        document.removeEventListener("click", checkIfClickedOutside)
+      }
+    }, [theme]);
+    const themeHandler = () => {
+      setIsSwitcherOpen((prev) => !prev)
     }
-  }, [theme]);
-  return (
-    <>
-      <button onClick={() => setIsSwitcherOpen((prev) => !prev)}>toggle</button>
-      <ul className={!isSwitcherOpen ? "hidden" : ""}>
+    return (
+      <div ref={ref} className="relative text-2xl">
+      <button onClick={themeHandler}>
+        {theme && <theme.Icon className={"text-sky-500"} />}
+      </button>
+      <ul className={`${!isSwitcherOpen ? "hidden" : ""} w-max absolute top-12 -right-12 bg-grayshade-500 border border-grayshade-300 p-5 rounded-xl`}>
         {themes.map((theme) => (
           <Theme
             key={theme.id}
@@ -30,7 +55,7 @@ function ThemeSwitcher() {
           />
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 

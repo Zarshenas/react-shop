@@ -9,16 +9,16 @@ const cartReducer = (state, action) => {
       return {
         ...state,
         addedProducts: [...state.addedProducts],
-        ...orderSum(state.addedProducts),
-        ...PriceSum(state.addedProducts),
+        ordersCount:orderSum(state.addedProducts),
+        totalPrice:PriceSum(state.addedProducts),
       };
     case "INCREASE":{
       manageQuantity(state.addedProducts , action.payload , action.type);
       return  {
         ...state,
         ...state.addedProducts,
-        ...orderSum(state.addedProducts),
-        ...PriceSum(state.addedProducts),
+        ordersCount:orderSum(state.addedProducts),
+        totalPrice:PriceSum(state.addedProducts),
       };
     }
     case "DECREASE":
@@ -26,16 +26,16 @@ const cartReducer = (state, action) => {
       return  {
         ...state,
         ...state.addedProducts,
-        ...orderSum(state.addedProducts),
-        ...PriceSum(state.addedProducts),
+        ordersCount:orderSum(state.addedProducts),
+        totalPrice:PriceSum(state.addedProducts),
       }; 
     case "DELETE":
       const newAddedProducts = state.addedProducts.filter((product) => product.id !== action.payload);
       return  {
         ...state,
         addedProducts:  [...newAddedProducts],
-        ...orderSum(newAddedProducts),
-        ...PriceSum(newAddedProducts),
+        ordersCount:orderSum(newAddedProducts),
+        totalPrice:PriceSum(newAddedProducts),
 
       }; 
     case "CHECKOUT":
