@@ -16,7 +16,7 @@ function Header() {
       <div className='flex items-center justify-between'>
         <Link className='relative mx-6' to={'/checkout'}>
           <span className='absolute text-sm -top-2 -right-2 p-1 w-5 h-5 text-center leading-none rounded-full bg-purpleshade-400 text-white'>{ordersCount}</span>
-          <CiShoppingBasket className='text-4xl border border-grayshade-200 p-1 rounded-md' />
+          <CiShoppingBasket className='text-4xl bg-white dark:bg-grayshade-400 border border-grayshade-200 p-1 rounded-md' />
         </Link>
         <ThemeSwitcher/>
       </div>
