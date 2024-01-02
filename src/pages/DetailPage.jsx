@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import ImageSlider from "../components/ImageSlider";
 import { IoIosArrowBack } from "react-icons/io";
 import { Triangle } from "react-loader-spinner";
-
+import AddToCart from "../components/AddToCart";
 
 export default function DetailPage() {
   const [loading, setLoading] = useState(true);
@@ -22,17 +22,22 @@ export default function DetailPage() {
     <div className="flex items-center justify-center max-w-7xl m-auto min-h-[calc(100vh-160px)]">
       {loading ? (
         <Triangle
-        visible
-        height="200"
-        width="200"
-        color="#703BF7"
-        ariaLabel="triangle-loading"
-        wrapperStyle={{fontSize:"150px"}}
-        wrapperClass="w-full col-span-3 flex justify-center m-auto"
-      />
-        ) : (
-          <div className="relative flex dark:bg-grayshade-400 border border-grayshade-300 rounded-xl  p-10 ">
-          <Link to={'/'} className="absolute flex items-center bg-grayshade-500 border border-grayshade-300 px-4 py-2 top-2 right-2 text-grayshade-50 rounded-full"><IoIosArrowBack className="text-white mr-2"/>    Back</Link>
+          visible
+          height="200"
+          width="200"
+          color="#703BF7"
+          ariaLabel="triangle-loading"
+          wrapperStyle={{ fontSize: "150px" }}
+          wrapperClass="w-full col-span-3 flex justify-center m-auto"
+        />
+      ) : (
+        <div className="relative flex dark:bg-grayshade-400 border border-grayshade-300 rounded-xl  p-10 ">
+          <Link
+            to={"/"}
+            className="absolute flex items-center bg-grayshade-500 border border-grayshade-300 px-4 py-2 top-2 right-2 text-grayshade-50 rounded-full"
+          >
+            <IoIosArrowBack className="text-white mr-2" /> Back
+          </Link>
           <ImageSlider
             imageList={product.images}
             setImgIndex={setImgIndex}
@@ -46,10 +51,17 @@ export default function DetailPage() {
             <p className="text-xl font-medium text-grayshade-50 my-10">
               {product.description}
             </p>
-            <p className="text-grayshade-50 font-bold text-lg">Price</p>
-            <p className="font-bold text-white text-2xl">
-              $ {product.price.toLocaleString()}
-            </p>
+            <div className="flex justify-between items-center">
+              <div>
+                <p className="text-grayshade-50 font-bold text-lg">Price</p>
+                <p className="font-bold text-white text-2xl">
+                  $ {product.price.toLocaleString()}
+                </p>
+              </div>
+              <AddToCart
+                cartData={{ id:product.id, title:product.title, price:product.price }}
+              />
+            </div>
           </div>
         </div>
       )}
