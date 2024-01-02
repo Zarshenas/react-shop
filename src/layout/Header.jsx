@@ -7,7 +7,7 @@ import { useCartCunsumer } from '../contexts/CartProvider';
 function Header() {
   const { cartState:{ordersCount}} = useCartCunsumer();
   return (
-    <div className="py-4 px-40 relative   w-full">
+    <div className="py-4 px-40 relative w-full">
       <img className='absolute -z-10 top-0 left-0 w-full h-full  object-cover' src="../../public/assets/AbstractDesign.svg" alt="bg-header" />
       <div className='w-full z-99 flex items-center justify-between'>
       <Link to={"/products"}>
