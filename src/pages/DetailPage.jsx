@@ -3,6 +3,7 @@ import { useGetProduct } from "../contexts/ProductsProvider";
 import { useEffect, useState } from "react";
 import ImageSlider from "../components/ImageSlider";
 import { IoIosArrowBack } from "react-icons/io";
+import { Triangle } from "react-loader-spinner";
 
 
 export default function DetailPage() {
@@ -20,7 +21,15 @@ export default function DetailPage() {
   return (
     <div className="flex items-center justify-center max-w-7xl m-auto min-h-[calc(100vh-160px)]">
       {loading ? (
-        <p>loading .....</p>
+        <Triangle
+        visible
+        height="200"
+        width="200"
+        color="#703BF7"
+        ariaLabel="triangle-loading"
+        wrapperStyle={{fontSize:"150px"}}
+        wrapperClass="w-full col-span-3 flex justify-center m-auto"
+      />
         ) : (
           <div className="relative flex dark:bg-grayshade-400 border border-grayshade-300 rounded-xl  p-10 ">
           <Link to={'/'} className="absolute flex items-center bg-grayshade-500 border border-grayshade-300 px-4 py-2 top-2 right-2 text-grayshade-50 rounded-full"><IoIosArrowBack className="text-white mr-2"/>    Back</Link>
