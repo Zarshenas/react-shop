@@ -19,7 +19,7 @@ export default function DetailPage() {
   }, [product]);
 
   return (
-    <div className="flex items-center justify-center max-w-7xl m-auto min-h-[calc(100vh-160px)]">
+    <div className="flex items-center justify-center max-w-7xl m-auto wrapper">
       {loading ? (
         <Triangle
           visible
