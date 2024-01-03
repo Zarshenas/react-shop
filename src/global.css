@@ -4,18 +4,28 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-  :root{
-    @apply font-urbanist
+  :root {
+    @apply font-urbanist;
   }
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  body{
-    @apply dark:bg-grayshade-500 dark:text-white
+  body {
+    @apply dark:bg-grayshade-500 dark:text-white;
+  }
+  body::-webkit-scrollbar-track {
+    @apply dark:bg-grayshade-400 bg-grayshade-50
+  }
+
+  body::-webkit-scrollbar {
+    @apply bg-grayshade-200 w-[10px];
+  }
+
+  body::-webkit-scrollbar-thumb {
+    @apply bg-purpleshade-400 border border-purpleshade-400;
   }
   .wrapper {
     @apply m-auto max-w-7xl min-h-[calc(100vh-160px)] py-3 px-14;
