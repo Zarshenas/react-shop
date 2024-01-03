@@ -5,7 +5,7 @@ import AddToCart from "./AddToCart";
 
 function Product({ productData:{ id, title, price, images:[image,,], category:{name:category}, description }}) {
   return (
-    <div className="py-7 px-7 border border-grayshade-300 rounded-xl dark:bg-grayshade-500 w-72">
+    <div className="py-7 px-7 border border-grayshade-50 dark:border-grayshade-300 rounded-xl dark:bg-grayshade-500 w-72">
       <Link to={`${id}`}>
         <img
           className="w-full rounded-lg self-stretch h-72 min-h-52 mb-7 object-cover"
@@ -15,24 +15,24 @@ function Product({ productData:{ id, title, price, images:[image,,], category:{n
       </Link>
       <div>
         <p className="font-semibold text-xl mb-2 h-auto">{title}</p>
-        <p className="text-grayshade-50 text-xs">
+        <p className="text-grayshade-100 dark:text-grayshade-50 text-xs">
           {textShrink(description)}
           <Link
-            className="font-semibold text-white text-xs ml-1"
+            className="font-semibold text-grayshade-100 dark:text-white text-xs ml-1"
             to={`${id}`}
             state={{ some: "value" }}
           >
             Read More
           </Link>
         </p>
-        <span className="bg-grayshade-400 inline-block border border-grayshade-300 py-2 px-3 text-xs rounded-full my-4">
+        <span className="lable">
           {category}
         </span>
       </div>
       <div className="flex justify-between items-center">
         <div>
-          <p className="text-grayshade-50 text-xs">Price</p>
-          <p className="font-semibold text-white text-lg">
+          <p className="text-grayshade-100 dark:text-grayshade-50 text-xs">Price</p>
+          <p className="font-semibold text-grayshade-300 dark:text-white text-lg">
             $ {price.toLocaleString()}
           </p>
         </div>

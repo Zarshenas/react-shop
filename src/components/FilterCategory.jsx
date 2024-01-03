@@ -50,7 +50,7 @@ function FilterCategory({ query: { query, setQuery } }) {
   };
 
   return (
-    <div className=" ml-7 h-max text-xl font-medium dark:bg-grayshade-500 border border-grayshade-300 rounded-xl w-2/12 pb-0 py-5">
+    <div className=" ml-7 h-max text-xl font-medium dark:bg-grayshade-500 border border-grayshade-50 dark:border-grayshade-300 rounded-xl w-2/12 pb-0 py-5">
       <p className="ml-2 flex items-center">
         {" "}
         <TbCategoryPlus className="mr-2 text-purpleshade-400" /> Categories :{" "}
@@ -69,7 +69,7 @@ function FilterCategory({ query: { query, setQuery } }) {
       ) : (
         <ul className="font-extralight text-lg ">
           <li
-            className={`py-1 cursor-pointer px-2 bg-gradient-to-r from-grayshade-400 to-transparent my-3 ${
+            className={`py-1 cursor-pointer px-2 bg-gradient-to-r from-zinc-200 dark:from-grayshade-400 dark:to-transparent  my-3 ${
               selectedCat == 0 && "border-l-2 border-purpleshade-400"
             }`}
             onClick={categoryHandler}
@@ -80,7 +80,7 @@ function FilterCategory({ query: { query, setQuery } }) {
           {catList.map(({ id, name }) => {
             if(id > 5) return;
             return<li
-              className={`py-1 cursor-pointer px-2 bg-gradient-to-r from-grayshade-400 to-transparent my-3 ${
+              className={`py-1 cursor-pointer px-2 bg-gradient-to-r from-zinc-200 dark:from-grayshade-400 dark:to-transparent my-3 ${
                 selectedCat == id && "border-l-2 border-purpleshade-400"
               }`}
               onClick={categoryHandler}

@@ -31,12 +31,12 @@ export default function DetailPage() {
           wrapperClass="w-full col-span-3 flex justify-center m-auto"
         />
       ) : (
-        <div className="relative flex dark:bg-grayshade-400 border border-grayshade-300 rounded-xl  p-10 ">
+        <div className="relative flex bg-zinc-100 dark:bg-grayshade-400 border border-grayshade-300 rounded-xl  p-10 ">
           <Link
+            className="absolute flex items-center dark:text-grayshade-50 text-grayshade-300 bg-zinc-200 dark:bg-grayshade-500 border border-grayshade-50 dark:border-grayshade-300 px-4 py-2 top-2 right-20 rounded-full"
             to={"/"}
-            className="absolute flex items-center bg-grayshade-500 border border-grayshade-300 px-4 py-2 top-2 right-2 text-grayshade-50 rounded-full"
           >
-            <IoIosArrowBack className="text-white mr-2" /> Back
+            <IoIosArrowBack className="text-grayshade-400 dark:text-white mr-2" /> Back
           </Link>
           <ImageSlider
             imageList={product.images}
@@ -45,7 +45,7 @@ export default function DetailPage() {
           />
           <div className="p-8 w-9/12 flex flex-col justify-center">
             <p className="text-4xl font-semibold">{product.title}</p>
-            <span className="bg-grayshade-300 inline-block border border-grayshade-200 py-2 px-3 text-xs rounded-full my-4 w-max">
+            <span className="lable w-max">
               {product.category.name}
             </span>
             <p className="text-xl font-medium text-grayshade-50 my-10">
@@ -53,8 +53,8 @@ export default function DetailPage() {
             </p>
             <div className="flex justify-between items-center">
               <div>
-                <p className="text-grayshade-50 font-bold text-lg">Price</p>
-                <p className="font-bold text-white text-2xl">
+                <p className="text-grayshade-100 dark:text-grayshade-50 text-lg">Price</p>
+                <p className="font-bold text-grayshade-300 dark:text-white text-2xl">
                   $ {product.price.toLocaleString()}
                 </p>
               </div>
