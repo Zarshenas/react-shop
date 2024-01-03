@@ -77,8 +77,9 @@ function FilterCategory({ query: { query, setQuery } }) {
           >
             All
           </li>
-          {catList.map(({ id, name }) => (
-            <li
+          {catList.map(({ id, name }) => {
+            if(id > 5) return;
+            return<li
               className={`py-1 cursor-pointer px-2 bg-gradient-to-r from-grayshade-400 to-transparent my-3 ${
                 selectedCat == id && "border-l-2 border-purpleshade-400"
               }`}
@@ -88,7 +89,7 @@ function FilterCategory({ query: { query, setQuery } }) {
             >
               {name}
             </li>
-          ))}
+          })}
         </ul>
       )}
     </div>
