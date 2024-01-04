@@ -29,7 +29,7 @@ function Product({ productData:{ id, title, price, images:[image,,], category:{n
           {category}
         </span>
       </div>
-      <div className="flex justify-between items-center sm:bg-red-500 md:bg-green-500 lg:bg-blue-700 xl:bg-zinc-900">
+      <div className="flex justify-between items-center">
         <div>
           <p className="text-grayshade-100 dark:text-grayshade-50 text-xs">Price</p>
           <p className="font-semibold text-grayshade-300 dark:text-white text-lg">
