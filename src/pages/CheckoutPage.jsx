@@ -48,8 +48,7 @@ export default function CheckoutPage() {
             </div>
           </div>
 
-          <div className="font-bold col-start-3 xl:mt-20 justify-self-end col-end-4 h-max w-full xl:w-max dark:bg-grayshade-500 border-2 border-grayshade-50  dark:border-grayshade-200 p-10 rounded-xl relative bg-cover bg-no-repeat outline outline-zinc-200 dark:outline-grayshade-400 outline-8 bg-[url('../../public/assets/AbstractDesign.svg')]">
-            {/* <img className='absolute -z-0 top-0 left-0 object-cover' src="../../public/assets/AbstractDesign.svg" alt="bg" /> */}
+          <div className="font-bold col-start-3 xl:mt-20 justify-self-end col-end-4 h-max w-full xl:w-max dark:bg-grayshade-500 border-2 border-grayshade-50  dark:border-grayshade-200 p-10 rounded-xl relative bg-cover bg-no-repeat outline outline-zinc-200 dark:outline-grayshade-400 outline-8 bg-[url('../assets/AbstractDesign.svg')]">
             <div className="flex xl:justify-start justify-center items-center my-5">
               <p>Order Total : </p>
               <p className="ml-2">$ {cartState.totalPrice}</p>
