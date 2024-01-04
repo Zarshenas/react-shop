@@ -1,3 +1,39 @@
+@import url(./fonts/font.css);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    @apply font-urbanist;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    @apply dark:bg-grayshade-500 dark:text-white;
+  }
+  body::-webkit-scrollbar-track {
+    @apply dark:bg-grayshade-400 bg-grayshade-50
+  }
+
+  body::-webkit-scrollbar {
+    @apply bg-grayshade-200 w-[10px];
+  }
+
+  body::-webkit-scrollbar-thumb {
+    @apply bg-purpleshade-400 border border-purpleshade-400;
+  }
+  .wrapper {
+    @apply m-auto max-w-[1480px] min-h-[calc(100vh-162px)] py-3 lg:px-14 md:px-14 px-4;
+  }
+  .lable{
+    @apply bg-zinc-200 dark:bg-grayshade-400 text-grayshade-300 dark:text-white inline-block border  border-grayshade-50 dark:border-grayshade-300 py-2 px-3 font-semibold  text-xs rounded-full my-4;
+  }
+  .button{
+    @apply  text-center text-lg rounded-lg text-white bg-purpleshade-400
+  }
+}
