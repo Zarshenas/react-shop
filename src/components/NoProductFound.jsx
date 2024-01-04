@@ -1,5 +1,5 @@
 import React from 'react';
-import searchnotfound from '../../public/assets/searchnotfound.png'
+import searchnotfound from '../assets/searchnotfound.png'
 
 function NoProductFound() {
   return (

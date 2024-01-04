@@ -4,7 +4,7 @@ import ThemeSwitcher from "../components/theme/ThemeSwitcher";
 import { CiShoppingBasket } from "react-icons/ci";
 import { useCartCunsumer } from "../contexts/CartProvider";
 import { FaGithub } from "react-icons/fa";
-import AbstractDesign from '../../public/assets/AbstractDesign.svg'
+import AbstractDesign from '../assets/AbstractDesign.svg'
 
 function Header() {
   const {

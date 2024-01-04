@@ -1,5 +1,5 @@
 import React from 'react'
-import emptycart from "../../public/assets/emptycart.png"
+import emptycart from "../assets/emptycart.png"
 
 function EmptyCart() {
   return (
