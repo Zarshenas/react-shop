@@ -4,6 +4,7 @@ import ThemeSwitcher from "../components/theme/ThemeSwitcher";
 import { CiShoppingBasket } from "react-icons/ci";
 import { useCartCunsumer } from "../contexts/CartProvider";
 import { FaGithub } from "react-icons/fa";
+import AbstractDesign from '../../public/assets/AbstractDesign.svg'
 
 function Header() {
   const {
@@ -13,7 +14,7 @@ function Header() {
     <nav className="py-4 px-5 md:px-24  lg:px-40 relative w-full border-b border-grayshade-300">
       <img
         className="absolute -z-10 top-0 left-0 w-full h-full  object-cover"
-        src="../../public/assets/AbstractDesign.svg"
+        src={AbstractDesign}
         alt="bg-header"
       />
       <div className="w-full z-99 flex items-center justify-between">
