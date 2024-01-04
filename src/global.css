@@ -28,7 +28,7 @@
     @apply bg-purpleshade-400 border border-purpleshade-400;
   }
   .wrapper {
-    @apply m-auto max-w-7xl min-h-[calc(100vh-160px)] py-3 px-14;
+    @apply m-auto max-w-[1480px] min-h-[calc(100vh-162px)] py-3 lg:px-14 md:px-14 px-4;
   }
   .lable{
     @apply bg-zinc-200 dark:bg-grayshade-400 text-grayshade-300 dark:text-white inline-block border  border-grayshade-50 dark:border-grayshade-300 py-2 px-3 font-semibold  text-xs rounded-full my-4;

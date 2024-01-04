@@ -31,9 +31,9 @@ export default function DetailPage() {
           wrapperClass="w-full col-span-3 flex justify-center m-auto"
         />
       ) : (
-        <div className="relative flex bg-zinc-100 dark:bg-grayshade-400 border border-grayshade-300 rounded-xl  p-10 ">
+        <div className="relative flex lg:flex-row flex-col bg-zinc-100 dark:bg-grayshade-400 border border-grayshade-300 rounded-xl max-md:p-4 lg:p-10 ">
           <Link
-            className="absolute flex items-center dark:text-grayshade-50 text-grayshade-300 bg-zinc-200 dark:bg-grayshade-500 border border-grayshade-50 dark:border-grayshade-300 px-4 py-2 top-2 right-20 rounded-full"
+            className="absolute text-xs lg:text-base flex items-center dark:text-grayshade-50 text-grayshade-300 bg-zinc-200 dark:bg-grayshade-500 border border-grayshade-50 dark:border-grayshade-300 px-4 py-2 top-[1%] right-[2%] rounded-full"
             to={"/"}
           >
             <IoIosArrowBack className="text-grayshade-400 dark:text-white mr-2" /> Back
@@ -43,12 +43,12 @@ export default function DetailPage() {
             setImgIndex={setImgIndex}
             imgIndex={imgIndex}
           />
-          <div className="p-8 w-9/12 flex flex-col justify-center">
-            <p className="text-4xl font-semibold">{product.title}</p>
+          <div className="lg:p-8 max-md:p-0 flex flex-col justify-center">
+            <p className="text-4xl max-sm:text-2xl font-semibold">{product.title}</p>
             <span className="lable w-max">
               {product.category.name}
             </span>
-            <p className="text-xl font-medium text-grayshade-50 my-10">
+            <p className="text-xl max-sm:text-base font-medium text-grayshade-50 my-10">
               {product.description}
             </p>
             <div className="flex justify-between items-center">

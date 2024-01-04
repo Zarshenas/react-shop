@@ -31,8 +31,8 @@ function Products() {
     <>
       <div className="wrapper">
         <Search query={{ query, setQuery }} />
-        <div className="w-full flex">
-          <div className="w-10/12 grid  grid-cols-3 gap-7 justify-items-start">
+        <div className="w-full flex lg:flex-row flex-col-reverse">
+          <div className="lg:w-10/12 md:w-10/12 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 md:grid-cols-2 lg:gap-7 gap-4 m-auto">
             {notFound && <NoProductFound/>}
             {!data.length && !notFound ? (
               <Triangle

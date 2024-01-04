@@ -5,7 +5,7 @@ import AddToCart from "./AddToCart";
 
 function Product({ productData:{ id, title, price, images:[image,,], category:{name:category}, description }}) {
   return (
-    <div className="py-7 px-7 border border-grayshade-50 dark:border-grayshade-300 rounded-xl dark:bg-grayshade-500 w-72">
+    <div className="md:p-4 lg:p-7 p-3 border border-grayshade-50 dark:border-grayshade-300 rounded-xl dark:bg-grayshade-500 w-full justify-center justify-items-center justify-self-center">
       <Link to={`${id}`}>
         <img
           className="w-full rounded-lg self-stretch h-72 min-h-52 mb-7 object-cover"
@@ -29,7 +29,7 @@ function Product({ productData:{ id, title, price, images:[image,,], category:{n
           {category}
         </span>
       </div>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center sm:bg-red-500 md:bg-green-500 lg:bg-blue-700 xl:bg-zinc-900">
         <div>
           <p className="text-grayshade-100 dark:text-grayshade-50 text-xs">Price</p>
           <p className="font-semibold text-grayshade-300 dark:text-white text-lg">

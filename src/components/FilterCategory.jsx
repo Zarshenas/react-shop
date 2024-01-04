@@ -8,6 +8,7 @@ function FilterCategory({ query: { query, setQuery } }) {
   const [catList, setCatList] = useState([]);
   const [selectedCat, setSelectedCat] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [showCat , setShowCat] = useState(true)
 
   useEffect(() => {
     const getCategories = async () => {
@@ -50,10 +51,11 @@ function FilterCategory({ query: { query, setQuery } }) {
   };
 
   return (
-    <div className=" ml-7 h-max text-xl font-medium dark:bg-grayshade-500 border border-grayshade-50 dark:border-grayshade-300 rounded-xl w-2/12 pb-0 py-5">
+    <>
+    <div className={`lg:!visible lg:!opacity-1 lg:!h-max md:${showCat? 'visible md:h-auto' : 'invisible md:h-0'} ${showCat? 'visible h-auto' : 'invisible h-0'} md:${showCat? 'opacity-1' : 'opacity-0'} ${showCat? 'opacity-1' : 'opacity-0'} mb-10 lg:ml-7 h-max  w-full  lg:w-2/12 min-w-48 text-xl font-medium dark:bg-grayshade-500 border border-grayshade-50 dark:border-grayshade-300 rounded-xl  pb-0 py-5 transition-all `}>
       <p className="ml-2 flex items-center">
         {" "}
-        <TbCategoryPlus className="mr-2 text-purpleshade-400" /> Categories :{" "}
+        <TbCategoryPlus className="mr-2 text-purpleshade-400" /> Categories :
       </p>
       {!catList.length ? (
         <ThreeDots
@@ -93,6 +95,11 @@ function FilterCategory({ query: { query, setQuery } }) {
         </ul>
       )}
     </div>
+    <div onClick={()=>setShowCat(prev=> !prev)} className="lg:hidden md:block flex mb-5 cursor-pointer">
+      <TbCategoryPlus className="mr-2 text-purpleshade-400" />
+      Categories
+    </div>
+    </>
   );
 }
 
