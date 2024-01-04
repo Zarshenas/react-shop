@@ -41,11 +41,11 @@ function ThemeSwitcher() {
       setIsSwitcherOpen((prev) => !prev)
     }
     return (
-      <div ref={ref} className="relative text-2xl border bg-white dark:bg-grayshade-400 border-grayshade-200 h-max p-1 leading-none rounded-md">
+      <div ref={ref} className="relative  text-2xl border bg-white dark:bg-grayshade-400 border-grayshade-200 h-max p-1 leading-none rounded-md">
       <button onClick={themeHandler}>
         {theme && <theme.Icon className={"text-sky-500"} />}
       </button>
-      <ul className={`${!isSwitcherOpen ? "hidden" : ""} w-max absolute top-12 -right-12 bg-white dark:bg-grayshade-500 border border-grayshade-300 p-5 rounded-xl`}>
+      <ul className={`${!isSwitcherOpen ? "hidden" : ""} z-50 w-max absolute top-12 -right-12 bg-white dark:bg-grayshade-500 border border-grayshade-300 p-5 rounded-xl`}>
         {themes.map((theme) => (
           <Theme
             key={theme.id}
