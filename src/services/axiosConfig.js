@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api = axios.create({
   // default configurations
-  baseURL: "https://api.escuelajs.co/api/v1",
+  baseURL: "https://react-shop-backend.liara.run",
 });
 
 api.interceptors.response.use(
