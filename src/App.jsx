@@ -6,12 +6,10 @@ import DetailPage from "./pages/DetailPage";
 import ProductsProvider from "./contexts/ProductsProvider";
 import { CartProvider } from "./contexts/CartProvider";
 import Layout from "./layout/Layout";
-import Modal from "./components/Modal";
 
 function App() {
   return (
     <>
-    <Modal title={'Im sorry about not loaded images'} hint={'Using a VPN might help!'} description={"The problem is from API and I'm tring to contact them about the presistant issue."}/>
       <CartProvider>
         <ProductsProvider>
           <Layout>
