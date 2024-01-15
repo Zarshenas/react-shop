@@ -57,4 +57,7 @@
   .bad{
     @apply bg-white dark:bg-grayshade-400 border border-grayshade-200 p-1 rounded-md
   }
+  .list{
+    @apply flex items-center justify-center cursor-pointer hover:bg-grayshade-400 rounded-lg py-2
+  }
 }

@@ -20,15 +20,15 @@ function Header() {
             React Shop
           </h1>
         </Link>
-        <div className="bad ">
-          <ul className="flex">
+        <div className="bg-lightColor-100 dark:bg-grayshade-500 border-2 border-grayshade-50 dark:border-grayshade-300 rounded-full  py-2 px-8">
+          <ul className="flex min-w-max w-[400px] justify-around text-xl">
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/products'>Products</Link></li>
-            {/* <li><Link to='/'>Categories</Link></li> */}
+            <li><Link to='/'>About</Link></li>
           </ul>
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between text-xl">
         <UserActions/>
           <ThemeSwitcher />
           <Link
