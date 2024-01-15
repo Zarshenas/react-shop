@@ -12,7 +12,7 @@ function FilterCategory({ query: { query, setQuery } }) {
 
   useEffect(() => {
     const getCategories = async () => {
-      const list = await api.get("/categories");
+      const list = (await api.get("/categories")).data;
       if (list.length) {
         sessionStorage.setItem("categories", JSON.stringify(list));
         setCatList(list);

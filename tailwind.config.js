@@ -18,6 +18,9 @@ export default {
         'grayshade-300':'#262626',
         'grayshade-400':'#1A1A1A',
         'grayshade-500':'#141414',
+        "lightColor-100":'#FCFCFC',
+        "lightColor-200":'#F7F7F7',
+        "lightColor-300":'#F3F3F3',
       },
       fontFamily:{
         "urbanist" : ['urbanist', 'sans-serif']

@@ -4,7 +4,8 @@ import ThemeSwitcher from "../components/theme/ThemeSwitcher";
 import { CiShoppingBasket } from "react-icons/ci";
 import { useCartCunsumer } from "../contexts/CartProvider";
 import { FaGithub } from "react-icons/fa";
-import AbstractDesign from '../assets/AbstractDesign.svg'
+import AbstractDesign from "../assets/AbstractDesign.svg";
+import UserActions from "../components/UserActions";
 
 function Header() {
   const {
@@ -19,18 +20,27 @@ function Header() {
       />
       <div className="w-full z-99 flex items-center justify-between">
         <Link to={"/products"}>
-          <h1 className="lg:text-5xl md:text-4xl text-xl font-semibold">React Shop</h1>
+          <h1 className="lg:text-5xl md:text-4xl text-xl font-semibold">
+            React Shop
+          </h1>
         </Link>
+
+        <UserActions/>
+        
         <div className="flex items-center justify-between">
           <Link className="relative lg:mx-6 md:mx-4 mx-3" to={"/checkout"}>
             <span className="absolute text-sm -top-2 -right-2 p-1 w-5 h-5 text-center leading-none rounded-full bg-purpleshade-400 text-white">
               {ordersCount}
             </span>
-            <CiShoppingBasket className="text-4xl bg-white dark:bg-grayshade-400 border border-grayshade-200 p-1 rounded-md" />
+            <CiShoppingBasket className="text-4xl bad" />
           </Link>
           <ThemeSwitcher />
-          <Link className="lg:mx-6 md:mx-4 mx-3" to={'https://github.com/Siza36/react-shop'} target="_blank">
-            <FaGithub className="text-4xl bg-white dark:bg-grayshade-400 border border-grayshade-200 p-1 rounded-md" />
+          <Link
+            className="lg:mx-6 md:mx-4 mx-3"
+            to={"https://github.com/Siza36/react-shop"}
+            target="_blank"
+          >
+            <FaGithub className="text-4xl bad" />
           </Link>
         </div>
       </div>

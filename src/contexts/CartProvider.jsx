@@ -19,10 +19,10 @@ function CartProvider({ children }) {
     </CartContext.Provider>
   );
 }
+export default CartProvider;
 
 const useCartCunsumer = () => {
   const cartData = useContext(CartContext);
   return cartData;
 };
-
-export { CartProvider, useCartCunsumer };
+export {useCartCunsumer};
