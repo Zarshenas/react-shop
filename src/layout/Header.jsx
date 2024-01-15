@@ -1,16 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ThemeSwitcher from "../components/theme/ThemeSwitcher";
-import { CiShoppingBasket } from "react-icons/ci";
-import { useCartCunsumer } from "../contexts/CartProvider";
 import { FaGithub } from "react-icons/fa";
 import AbstractDesign from "../assets/AbstractDesign.svg";
 import UserActions from "../components/UserActions";
 
 function Header() {
-  const {
-    cartState: { ordersCount },
-  } = useCartCunsumer();
+
   return (
     <nav className="py-4 px-5 md:px-24  lg:px-40 relative w-full border-b border-grayshade-300">
       <img
@@ -19,21 +15,21 @@ function Header() {
         alt="bg-header"
       />
       <div className="w-full z-99 flex items-center justify-between">
-        <Link to={"/products"}>
+        <Link to={"/"}>
           <h1 className="lg:text-5xl md:text-4xl text-xl font-semibold">
             React Shop
           </h1>
         </Link>
+        <div className="bad ">
+          <ul className="flex">
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/products'>Products</Link></li>
+            {/* <li><Link to='/'>Categories</Link></li> */}
+          </ul>
+        </div>
 
-        <UserActions/>
-        
         <div className="flex items-center justify-between">
-          <Link className="relative lg:mx-6 md:mx-4 mx-3" to={"/checkout"}>
-            <span className="absolute text-sm -top-2 -right-2 p-1 w-5 h-5 text-center leading-none rounded-full bg-purpleshade-400 text-white">
-              {ordersCount}
-            </span>
-            <CiShoppingBasket className="text-4xl bad" />
-          </Link>
+        <UserActions/>
           <ThemeSwitcher />
           <Link
             className="lg:mx-6 md:mx-4 mx-3"
