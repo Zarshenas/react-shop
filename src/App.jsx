@@ -12,6 +12,9 @@ import Login from "./pages/Login";
 import { Toaster } from "react-hot-toast";
 import Home from "./pages/Home";
 import Protected from "./components/Protected";
+import Dashbord from "./pages/Dashbord";
+import MyAccount from "./components/dashboard/MyAccount";
+import MyOrders from "./components/dashboard/MyOrders";
 
 function App() {
   return (
@@ -37,6 +40,10 @@ function App() {
                 //protected Routes go here
                 <Route element={<Protected />}>
                   <Route path="/checkout" element={<CheckoutPage />} />
+                  <Route path="/dashboard" element={<Dashbord />} >
+                    <Route path={'my-account'} element={<MyAccount/>}/>
+                    <Route path={'my-orders'} element={<MyOrders/>}/>
+                  </Route>
                 </Route>
               </Routes>
             </Layout>

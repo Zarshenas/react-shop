@@ -7,7 +7,7 @@ const AuthContext = createContext();
 
 function AuthenticateProvider({ children }) {
 
-    const [username, setUsername] = useState("");
+    const [userInfo, setUserInfo] = useState({firstName:"" ,lastName:"" ,email:"" , _id:""});
     const [cookies,setCookie, removeCookie] = useCookies(['token']);
     const [isAuthenticated , setIsAuthenticated] = useState(!!cookies.token)
 
@@ -22,9 +22,8 @@ function AuthenticateProvider({ children }) {
           setIsAuthenticated(false)
         }
         const { data } = await api.post("/", {}, { withCredentials: true });
-        const { status, firstName } = data;
-        setUsername(firstName);
-        console.log(status)
+        const { status, userInfo } = data;
+        setUserInfo(userInfo);
         return status
           ? setIsAuthenticated(true)
           : (logOut());
@@ -34,7 +33,7 @@ function AuthenticateProvider({ children }) {
 
     
 
-  return <AuthContext.Provider value={{logOut , isAuthenticated , setIsAuthenticated , username}}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{logOut , isAuthenticated , setIsAuthenticated , userInfo}}>{children}</AuthContext.Provider>;
 }
 
 export default AuthenticateProvider;

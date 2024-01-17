@@ -7,7 +7,7 @@ import { useCartCunsumer } from "../contexts/CartProvider";
 
 const UserActions = () => {
   const [dropDown, setDropDown] = useState(false);
-  const { logOut, isAuthenticated, username } = useAuth();
+  const { logOut, isAuthenticated, userInfo } = useAuth();
   const {
     cartState: { ordersCount },
   } = useCartCunsumer();
@@ -35,7 +35,7 @@ const UserActions = () => {
               className="flex items-center bad dark:bg-grayshade-500 px-4"
             >
               <TbUser className="text-2xl" />
-              <p>welcome <span className="dark:text-purpleshade-100 text-purpleshade-400">{username}</span></p>
+              <p>welcome <span className="dark:text-purpleshade-100 text-purpleshade-400">{userInfo.firstName}</span></p>
               <TbChevronDown/>
             </div>
             <ul
@@ -43,8 +43,9 @@ const UserActions = () => {
                 dropDown ? "block" : "hidden"
               }  bad dark:bg-grayshade-500 absolute p-4 top-[50px] right-0 left-0 [&>li]:list z-50`}
             >
-              <li><Link to="/dashboard"> Dashboard </Link></li>
-              <li><Link to="/">Payed Orders</Link></li>
+              <li><Link to="/dashboard/my-account"> Dashboard </Link></li>
+              <li><Link to="/dashboard/my-orders">Payed Orders</Link></li>
+              <hr className="mt-2 pt-2 border-t border-grayshade-200 dark:border-grayshade-200" />
               <li onClick={() => logOut()}>
                 <TbLogout2 className="mr-2" />
                 <span>Logout</span>

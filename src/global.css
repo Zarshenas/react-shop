@@ -30,6 +30,9 @@
   .wrapper {
     @apply m-auto max-w-[1480px] min-h-[calc(100vh-162px)] py-3 lg:px-14 md:px-14 px-4;
   }
+  .wrapper-full {
+    @apply w-full min-h-[calc(100vh-162px)] py-3 lg:px-14 md:px-14 px-4;
+  }
   .lable{
     @apply bg-zinc-200 dark:bg-grayshade-400 text-grayshade-300 dark:text-white inline-block border  border-grayshade-50 dark:border-grayshade-300 py-2 px-3 font-semibold  text-xs rounded-full my-4;
   }
@@ -58,6 +61,6 @@
     @apply bg-white dark:bg-grayshade-400 border border-grayshade-200 p-1 rounded-md
   }
   .list{
-    @apply flex items-center justify-center cursor-pointer hover:bg-grayshade-400 rounded-lg py-2
+    @apply flex items-center justify-center cursor-pointer hover:bg-lightColor-300 dark:hover:bg-grayshade-400 rounded-lg py-2
   }
 }

@@ -4,7 +4,7 @@ const api = axios.create({
   // default configurations
   // baseURL: "https://react-shop-backend.liara.run",
   baseURL: "http://localhost:3000",
-  withCredentials: true
+  withCredentials: true,
 });
 
 api.interceptors.response.use(
