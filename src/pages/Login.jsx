@@ -22,12 +22,11 @@ function Login() {
           "Content-Type": "application/json",
         },
       }).then((res) => {
-        console.log(res)
         if (res.status === 200) {
           toast.success("Login successfull!", { duration: 4000 });
           setTimeout(() => {
             setIsAuthenticated(true)
-            navigate("/");
+            navigate("/" , {replace:true});
           }, 1000);
         }
       }).catch(err =>{

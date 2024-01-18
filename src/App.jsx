@@ -15,6 +15,7 @@ import Protected from "./components/Protected";
 import Dashbord from "./pages/Dashbord";
 import MyAccount from "./components/dashboard/MyAccount";
 import MyOrders from "./components/dashboard/MyOrders";
+import AuthProtected from "./components/AuthProtected";
 
 function App() {
   return (
@@ -33,11 +34,14 @@ function App() {
                 <Route path="/products" element={<Products />} />
                 <Route path="/products/:id" element={<DetailPage />} />
                 <Route path="/*" element={<NotFound />} />
-                <Route path="/auth/signup" element={<Signup />} />
-                <Route path="/signup" element={<Navigate to={'/auth/signup'}/>} />
-                <Route path="/auth/login" element={<Login />} />
-                <Route path="/login" element={<Navigate to={'/auth/login'}/>} />
-                //protected Routes go here
+                //preventing user to navigate to auth routes if has loged in already
+                <Route element={<AuthProtected/>}>
+                  <Route path="/auth/signup" element={<Signup />} />
+                  <Route path="/signup" element={<Navigate to={'/auth/signup'}/>} />
+                  <Route path="/auth/login" element={<Login />} />
+                  <Route path="/login" element={<Navigate to={'/auth/login'}/>} />
+                </Route>
+                //protected Routes go here if user is not loged in
                 <Route element={<Protected />}>
                   <Route path="/checkout" element={<CheckoutPage />} />
                   <Route path="/dashboard" element={<Dashbord />} >
@@ -53,6 +57,7 @@ function App() {
       <Toaster
         toastOptions={{
           style: { color: "#ffffff", backgroundColor: "#262626" },
+          position:"bottom-left"
         }}
       />
     </>

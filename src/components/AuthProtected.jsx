@@ -2,12 +2,12 @@ import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthenticateProvider";
 
-function Protected({ children }) {
+function AuthProtected({ children }) {
 
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
   
-  if (isAuthenticated) {
+  if (!isAuthenticated) {
     return (
         <>
         {children}
@@ -15,8 +15,8 @@ function Protected({ children }) {
         </>
     );
   } else {
-    navigate("/auth/login");
+    navigate("/");
   }
 }
 
-export default Protected;
+export default AuthProtected;

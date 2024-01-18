@@ -25,7 +25,7 @@ function MyAccount() {
         values.lastName === lastName &&
         values.email === email
       ) {
-        toast.error("No change received", {duration:3000 , position: "bottom-left"  } );
+        toast.error("No change received", { duration: 3000 });
         return;
       }
 
@@ -39,11 +39,11 @@ function MyAccount() {
         })
         .then((res) => {
           if (res.status === 204)
-          toast.success("Changes applied successfully!", {duration:3000 , position: "bottom-left"  } );
+            toast.success("Changes applied successfully!", { duration: 3000 });
         })
         .catch((err) => {
-            toast.error("Somthing went wrong", { duration: 4000 ,position: "bottom-left" });
-            console.log(err.response.data)
+          toast.error("Somthing went wrong", { duration: 4000 });
+          console.log(err.response.data);
         });
     },
   });
