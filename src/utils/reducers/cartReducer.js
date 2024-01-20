@@ -49,6 +49,14 @@ const cartReducer = (state, action) => {
         totalPrice: 0,
         addedProducts: [],
       }
+      case "GETFROMDB":
+        console.log(action.payload)
+          return {
+          checkout: action.payload.ordersCount,
+          ordersCount: action.payload.ordersCount,
+          totalPrice: action.payload.totalPrice,
+          addedProducts: action.payload.addedProducts,
+        }
     }
 };
 export default cartReducer;

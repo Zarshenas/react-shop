@@ -4,7 +4,7 @@ import EmptyCart from "../components/EmptyCart";
 
 export default function CheckoutPage() {
   const { cartState, dispatch } = useCartCunsumer();
-  console.log(cartState.addedProducts.length);
+  
   return (
     <>
       {cartState.checkout || !cartState.addedProducts.length ? (

@@ -1,5 +1,7 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import cartReducer from "../utils/reducers/cartReducer";
+import api from "../services/axiosConfig";
+import { useAuth } from "./AuthenticateProvider";
 const CartContext = createContext();
 
 const initialValue = {
@@ -12,7 +14,17 @@ const initialValue = {
 
 function CartProvider({ children }) {
   const [cartState, dispatch] = useReducer(cartReducer, initialValue);
+  const {userInfo:{_id}} = useAuth();
 
+  
+  useEffect(() => {
+    console.log("DWdaawdwad")
+    if(!_id) return;
+    const postCart = async () => {
+      await api.post('/user/updatecart' , {cartState , _id}).catch((err)=> console.log(err))
+    }
+    postCart();
+  }, [cartState]);
   return (
     <CartContext.Provider value={{ cartState, dispatch }}>
       {children}
@@ -25,4 +37,4 @@ const useCartCunsumer = () => {
   const cartData = useContext(CartContext);
   return cartData;
 };
-export {useCartCunsumer};
+export { useCartCunsumer };

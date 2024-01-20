@@ -16,9 +16,9 @@ function AddToCart({cartData}) {
   const addHandler = () =>{
     if (!isAuthenticated) return navigate('/auth/login')
     dispatch({type:"ADD_PRODUCT" , payload:cartInfo})
-  }
-  const increaseHandler = () =>{
-    dispatch({type:"INCREASE" , payload:cartInfo.id})
+}
+const increaseHandler = () =>{
+  dispatch({type:"INCREASE" , payload:cartInfo.id})
   }
   const decreaseHandler = () =>{
     dispatch({type:"DECREASE" , payload:cartInfo.id})
@@ -26,7 +26,7 @@ function AddToCart({cartData}) {
   const removeHandler = () =>{
     dispatch({type:"DELETE" , payload:cartInfo.id})
   }
-
+  
   return (
     <div className="flex text-white justify-between items-center">
       {
