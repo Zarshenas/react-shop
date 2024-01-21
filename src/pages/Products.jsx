@@ -17,7 +17,6 @@ function Products() {
     const check= setTimeout(() => {
       if (!data.length && query.search) {
         setNotFound(true);
-        console.log(data)
       }else{
         setNotFound(false)
       }

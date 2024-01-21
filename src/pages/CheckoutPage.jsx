@@ -4,10 +4,9 @@ import EmptyCart from "../components/EmptyCart";
 
 export default function CheckoutPage() {
   const { cartState, dispatch } = useCartCunsumer();
-  
   return (
     <>
-      {cartState.checkout || !cartState.addedProducts.length ? (
+      {cartState.checkout  || !cartState.addedProducts.length ? (
         <EmptyCart />
       ) : (
         <div className=" wrapper flex flex-col-reverse xl:grid gap-8 lg:grid-cols-3 text-xl py-14">
@@ -23,7 +22,7 @@ export default function CheckoutPage() {
             <div className=" h-max p-1 from-purpleshade-400 from-0% to-30% bg-gradient-to-br to-grayshade-50 dark:to-grayshade-300 ">
               <div className="text-lg bg-white dark:bg-grayshade-500">
                 {cartState.addedProducts.map((product) => (
-                  <div className="grid grid-cols-4 py-4 xl:text-base text-sm">
+                  <div key={product.id} className="grid grid-cols-4 py-4 xl:text-base text-sm">
                     <div className=" text-left p-4 h-14">
                       {product.title}
                     </div>

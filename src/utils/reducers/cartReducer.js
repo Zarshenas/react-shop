@@ -52,7 +52,7 @@ const cartReducer = (state, action) => {
       case "GETFROMDB":
         console.log(action.payload)
           return {
-          checkout: action.payload.ordersCount,
+          checkout: action.payload.checkout,
           ordersCount: action.payload.ordersCount,
           totalPrice: action.payload.totalPrice,
           addedProducts: action.payload.addedProducts,

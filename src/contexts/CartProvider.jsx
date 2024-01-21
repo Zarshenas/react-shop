@@ -14,11 +14,28 @@ const initialValue = {
 
 function CartProvider({ children }) {
   const [cartState, dispatch] = useReducer(cartReducer, initialValue);
-  const {userInfo:{_id}} = useAuth();
+  const {userInfo:{_id} ,isAuthenticated } = useAuth();
 
+  useEffect(() => {
+    if (!_id) return;
+    if (isAuthenticated) {
+      const getUserCart = async () => {
+        await api
+          .post("/user/cart", { _id })
+          .then(({ data }) => {
+            dispatch({ type: "GETFROMDB", payload: data });
+          })
+          .catch((err) => {
+            if (err.response.status === 404) {
+              return;
+            }
+          });
+      };
+      getUserCart();
+    }
+  }, [isAuthenticated, _id]);
   
   useEffect(() => {
-    console.log("DWdaawdwad")
     if(!_id) return;
     const postCart = async () => {
       await api.post('/user/updatecart' , {cartState , _id}).catch((err)=> console.log(err))
