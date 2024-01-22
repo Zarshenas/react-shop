@@ -1,9 +1,31 @@
 import { useCartCunsumer } from "../contexts/CartProvider";
 import AddToCart from "../components/AddToCart";
 import EmptyCart from "../components/EmptyCart";
+import api from "../services/axiosConfig";
+import { useAuth } from "../contexts/AuthenticateProvider";
+import { useEffect } from "react";
 
 export default function CheckoutPage() {
   const { cartState, dispatch } = useCartCunsumer();
+  const { userInfo} = useAuth();
+
+  useEffect(()=>{
+    if(!cartState.checkout) return;
+    const postOrder = async () => {
+      const orderData = {
+        ...cartState,
+        userInfo
+      }
+      api.post("/order" ,orderData).then(res => console.log(res))
+      dispatch({type:"CLEAR"})
+    }
+    postOrder();
+  } ,[cartState])
+
+  const checkoutHandler = () => {
+    dispatch({ type: "CHECKOUT"})  
+  }
+
   return (
     <>
       {cartState.checkout  || !cartState.addedProducts.length ? (
@@ -58,7 +80,7 @@ export default function CheckoutPage() {
             </div>
             <div className="text-center">
               <button
-                onClick={() => dispatch({ type: "CHECKOUT" })}
+                onClick={checkoutHandler}
                 className="h-10 px-4  font-semibold button"
               >
                 CHECKOUT

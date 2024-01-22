@@ -16,7 +16,7 @@ function Header() {
       />
       <div className="w-full z-99 flex items-center justify-between">
         <Link to={"/"}>
-          <h1 className="lg:text-5xl md:text-4xl text-xl font-semibold">
+          <h1 className="lg:text-5xl md:text-4xl text-xl font-extrabold">
             React Shop
           </h1>
         </Link>
