@@ -8,6 +8,9 @@
   :root {
     @apply font-urbanist;
   }
+  html{
+    scroll-behavior: smooth;
+  }
   * {
     margin: 0;
     padding: 0;
@@ -27,6 +30,9 @@
   body::-webkit-scrollbar-thumb {
     @apply bg-purpleshade-400 border border-purpleshade-400;
   }
+}
+
+@layer components {
   .wrapper {
     @apply m-auto max-w-[1480px] min-h-[calc(100vh-162px)] py-3 lg:px-14 md:px-14 px-4;
   }
@@ -35,9 +41,6 @@
   }
   .lable{
     @apply bg-zinc-200 dark:bg-grayshade-400 text-grayshade-300 dark:text-white inline-block border  border-grayshade-50 dark:border-grayshade-300 py-2 px-3 font-semibold  text-xs rounded-full my-4;
-  }
-  .button{
-    @apply  text-center text-lg rounded-lg text-white bg-purpleshade-400
   }
   .form-section{
     @apply flex flex-col my-2 md:max-w-72 w-full lg:max-w-[498px] m-auto
@@ -62,5 +65,27 @@
   }
   .list{
     @apply flex items-center justify-center cursor-pointer hover:bg-lightColor-300 dark:hover:bg-grayshade-400 rounded-lg py-2
+  }
+  .button{
+    @apply  text-center text-lg rounded-lg text-white bg-purpleshade-400
+  }
+  .btn,
+  .btn-sm {
+    @apply font-medium inline-flex items-center justify-center border border-transparent rounded leading-snug transition duration-150 ease-in-out;
+  }
+  
+  .btn {
+    @apply px-8 py-3 shadow-lg;
+  }
+  
+  .btn-sm {
+    @apply px-4 py-2 shadow;
+  }
+  
+  /* animation classes */
+  [data-aos="zoom-y-out"] {
+    transform: scaleX(1.03);
+    opacity: 0;
+    transition-property: transform, opacity;
   }
 }
