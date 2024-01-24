@@ -24,7 +24,7 @@ function Header() {
           <ul className="flex min-w-max w-[400px] justify-around text-xl">
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/products'>Products</Link></li>
-            <li><Link to='/'>About</Link></li>
+            <li><Link to='/about'>About</Link></li>
           </ul>
         </div>
 

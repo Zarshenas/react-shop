@@ -1,6 +1,7 @@
 import React ,{ useEffect }  from "react";
 import AOS from "aos";
 import 'aos/dist/aos.css';
+import { Link } from "react-router-dom";
 
 function HeroHome() {
   useEffect(() => {
@@ -67,20 +68,20 @@ function HeroHome() {
                 data-aos-delay="300"
               >
                 <div>
-                  <a
+                  <Link
                     className="btn text-white bg-purpleshade-400 hover:bg-purpleshade-300 w-full mb-4 sm:w-auto sm:mb-0"
-                    href="#0"
+                    to={'/products'}
                   >
-                    Start free trial
-                  </a>
+                    Start Shopping
+                  </Link>
                 </div>
                 <div>
-                  <a
+                  <Link
                     className="btn text-white bg-grayshade-300 hover:bg-grayshade-200 w-full sm:w-auto sm:ml-4"
-                    href="#0"
+                    to={'/about'}
                   >
                     Learn more
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

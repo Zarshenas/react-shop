@@ -53,8 +53,7 @@ function Newsletter() {
                     <input type="email" className="w-full appearance-none bg-grayshade-400 border border-grayshade-200 focus:border-grayshade-100 focus:outline-none rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-gray-500" placeholder="Your email…" aria-label="Your email…" />
                     <a className="btn text-white bg-purpleshade-400 hover:bg-purpleshade-300 shadow" href="#0">Subscribe</a>
                   </div>
-                  {/* Success message */}
-                  {/* <p className="text-sm text-gray-400 mt-3">Thanks for subscribing!</p> */}
+          
                   <p className="text-sm text-gray-400 mt-3">7 days free trial. No credit card required.</p>
                 </form>
               </div>

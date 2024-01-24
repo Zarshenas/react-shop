@@ -16,6 +16,7 @@ import Dashbord from "./pages/Dashbord";
 import MyAccount from "./components/dashboard/MyAccount";
 import MyOrders from "./components/dashboard/MyOrders";
 import AuthProtected from "./components/AuthProtected";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
                   element={<Navigate to="/" replace />}
                 />
                 <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/products/:id" element={<DetailPage />} />
                 <Route path="/*" element={<NotFound />} />
