@@ -90,10 +90,10 @@ function About() {
           Happy exploring!
         </p>
         <div className="flex text-4xl md:text-[60px] justify-evenly my-8 text-grayshade-50">
-          <Link data-aos="zoom-in">
+          <Link to={"https://www.linkedin.com/in/ali-zarshenas-siza"} target="_blank" data-aos="zoom-in">
             <FaLinkedin className="hover:text-[#0077b5]  transition-all ease duration-300" />
           </Link>
-          <Link data-aos="zoom-in">
+          <Link to={"https://github.com/Siza36"} target="_blank" data-aos="zoom-in">
             <FaGithub className="hover:text-black dark:hover:text-white  transition-all ease duration-300" />
           </Link>
         </div>
