@@ -1,29 +1,33 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/axiosConfig";
 import { useAuth } from "../../contexts/AuthenticateProvider";
+import EmptyOrders from "../EmptyOrders";
 
 const MyOrders = () => {
-    const {
-        userInfo: { _id },
-      } = useAuth();
-    const [orders , setOrders] = useState([]);
-
+  const { isAuthenticated } = useAuth();
+  const [orders, setOrders] = useState([]);
+  console.log(orders);
   useEffect(() => {
-    if (!_id) return
-
     const getOrders = async () => {
-        api.post('/user/myorders' , {_id})
-        .then(({data , status})=> {
-            if(status === 204){
-                console.log("user has no orders")
-            }
-            setOrders(data)
-        })
+      api.get("/user/myorders").then(({ data, status }) => {
+        if (status === 204) return;
+        setOrders(data);
+      });
     };
-    getOrders()
-  }, [_id]);
+    if (isAuthenticated) getOrders();
+  }, []);
 
-  return <>MyOrders</>;
+  return (
+    <div className="mt-6">
+      {!orders.length ? (
+        <EmptyOrders />
+      ) : (
+        <div>
+          {orders.map(order => <p key={order._id}> {order.ordersCount}</p>)}
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default MyOrders;

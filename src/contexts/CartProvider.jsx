@@ -11,17 +11,17 @@ const initialValue = {
   addedProducts: [],
 };
 
-
 function CartProvider({ children }) {
   const [cartState, dispatch] = useReducer(cartReducer, initialValue);
-  const {userInfo:{_id} ,isAuthenticated } = useAuth();
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
-    if (!_id) return;
+    const controller = new AbortController();
+    const signal = controller.signal;
     if (isAuthenticated) {
       const getUserCart = async () => {
         await api
-          .post("/user/cart", { _id })
+          .get("/user/cart", { signal: signal })
           .then(({ data }) => {
             dispatch({ type: "GETFROMDB", payload: data });
           })
@@ -32,15 +32,28 @@ function CartProvider({ children }) {
           });
       };
       getUserCart();
+      return () => {
+        controller.abort();
+      };
     }
-  }, [isAuthenticated, _id]);
-  
+  }, []);
+
   useEffect(() => {
-    if(!_id) return;
+    const controller = new AbortController();
+    const signal = controller.signal;
     const postCart = async () => {
-      await api.post('/user/updatecart' , {cartState , _id}).catch((err)=> console.log(err))
-    }
+      await api
+        .post("/user/updatecart", { cartState }, { signal: signal })
+        .catch((err) => {
+          if (err.code === "ERR_CANCELED") return;
+          console.log(err);
+        });
+    };
     postCart();
+
+    return () => {
+      controller.abort();
+    };
   }, [cartState]);
   return (
     <CartContext.Provider value={{ cartState, dispatch }}>

@@ -2,13 +2,9 @@ import React from "react";
 import { updatePassword as validate } from "../../utils/helpers/formValidator";
 import { useFormik } from "formik";
 import api from "../../services/axiosConfig";
-import { useAuth } from "../../contexts/AuthenticateProvider";
 import toast from "react-hot-toast";
 
 function UpdatePassword() {
-  const {
-    userInfo: { _id },
-  } = useAuth();
   const formik = useFormik({
     initialValues: {
       currentPassword: "",
@@ -22,8 +18,7 @@ function UpdatePassword() {
         });
         return;
       }
-      const updatedInfo = JSON.stringify({ _id, ...values });
-      console.log(updatedInfo);
+      const updatedInfo = JSON.stringify(values);
       api
         .post("/user/update/password", updatedInfo, {
           headers: {

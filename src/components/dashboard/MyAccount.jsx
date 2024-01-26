@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 
 function MyAccount() {
   const {
-    userInfo: { firstName, lastName, email, _id },
+    userInfo: { firstName, lastName, email },
   } = useAuth();
 
   const formik = useFormik({
@@ -29,9 +29,10 @@ function MyAccount() {
         return;
       }
 
-      const updatedInfo = JSON.stringify({ _id, ...values });
+      const updatedInfo = JSON.stringify(values);
+      console.log(updatedInfo)
       api
-        .post("/user/update", updatedInfo, {
+        .post("/user/update", updatedInfo , {
           headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
