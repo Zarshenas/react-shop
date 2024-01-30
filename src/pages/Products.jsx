@@ -1,4 +1,4 @@
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import Product from "../components/Product";
 import { Triangle } from "react-loader-spinner";
 import { useProductConsumer } from "../contexts/ProductsProvider";

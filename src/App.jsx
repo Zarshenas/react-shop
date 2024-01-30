@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate, json } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Products from "./pages/Products";
 import NotFound from "./pages/NotFound";
 import CheckoutPage from "./pages/CheckoutPage";
@@ -17,7 +17,6 @@ import MyAccount from "./components/dashboard/MyAccount";
 import MyOrders from "./components/dashboard/MyOrders";
 import AuthProtected from "./components/AuthProtected";
 import About from "./pages/About";
-import api from "./services/axiosConfig";
 
 function App() {
   return (
