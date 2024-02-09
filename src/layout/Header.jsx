@@ -38,7 +38,7 @@ function Header() {
     >
       <div
         onClick={openNavHandler}
-        className="ham-container z-[99] xl:hidden w-12 h-12 absolute left-4 top-2 cursor-pointer label bad p-1 flex justify-around items-center flex-col"
+        className="ham-container z-[99] xl:hidden w-10 h-10 absolute left-2 top-2 cursor-pointer label bad p-1 flex justify-around items-center flex-col"
       >
         <RiMenu3Fill className="text-purpleshade-300 text-2xl font-bold" />
       </div>
@@ -49,7 +49,7 @@ function Header() {
       />
       <div className="w-full flex items-center justify-end min-[490px]:justify-around">
         <Link
-          className="lg:text-5xl md:text-4xl text-xl font-extrabold mr-8 xl:mr-0 z-20"
+          className="lg:text-5xl md:text-4xl sm:text-xl font-extrabold xl:mr-8 z-20"
           to={"/"}
         >
           <h1>React Shop</h1>

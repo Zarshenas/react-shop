@@ -31,7 +31,7 @@ const UserActions = () => {
     };
   }, []);
   return (
-    <div className="flex items-center font-semibold">
+    <div className="flex items-center font-semibold z-20">
       {isAuthenticated ? (
         <>
           <button className="relative">
@@ -76,12 +76,15 @@ const UserActions = () => {
         </>
       ) : (
         <>
-          <Link className="text-xl mx-2 flex items-center bad" to="/auth/login">
+          <Link
+            className="text-sm md:text-base xl:text-xl mx-2 flex items-center bad"
+            to="/auth/login"
+          >
             <TbLogin2 className="mr-2" />
             Login
           </Link>
           <Link
-            className="text-xl mx-2 flex items-center bad"
+            className="text-sm md:text-base xl:text-xl mx-2 flex items-center bad"
             to="/auth/signup"
           >
             <TbUserPlus className="mr-2" />
