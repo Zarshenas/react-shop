@@ -1,7 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useAuth } from "../contexts/AuthenticateProvider";
 import { Link } from "react-router-dom";
-import { TbUser, TbUserPlus, TbLogout2, TbLogin2 ,TbChevronDown  } from "react-icons/tb";
+import {
+  TbUser,
+  TbUserPlus,
+  TbLogout2,
+  TbLogin2,
+  TbChevronDown,
+} from "react-icons/tb";
 import { CiShoppingBasket } from "react-icons/ci";
 import { useCartCunsumer } from "../contexts/CartProvider";
 
@@ -13,38 +19,47 @@ const UserActions = () => {
   } = useCartCunsumer();
 
   const ref = useRef();
-  useEffect(()=>{
-    const checkIfClickedOutside = e => {
-        if (ref.current && !ref.current.contains(e.target)) {
-            setDropDown(false);
-        }
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setDropDown(false);
       }
-      document.addEventListener("click", checkIfClickedOutside)
-      return () => {
-        document.removeEventListener("click", checkIfClickedOutside)
-      }
-  } ,[])
+    };
+    document.addEventListener("click", checkIfClickedOutside);
+    return () => {
+      document.removeEventListener("click", checkIfClickedOutside);
+    };
+  }, []);
   return (
-    <div className=" flex font-semibold ">
+    <div className="flex items-center font-semibold">
       {isAuthenticated ? (
         <>
           <button className="relative">
             <div
               ref={ref}
               onClick={() => setDropDown((prev) => !prev)}
-              className="flex items-center bad dark:bg-grayshade-500 px-4"
+              className="flex items-center bad dark:bg-grayshade-500 xl:px-4 px-2 text-sm xl:text-base"
             >
-              <TbUser className="text-2xl" />
-              <p>welcome <span className="dark:text-purpleshade-100 text-purpleshade-400">{userInfo.firstName&& userInfo.firstName}</span></p>
-              <TbChevronDown/>
+              <TbUser className="text-2xl xl:text-2xl" />
+              <p className="hidden xl:block">
+                welcome{" "}
+                <span className="dark:text-purpleshade-100 text-purpleshade-400">
+                  {userInfo.firstName && userInfo.firstName}
+                </span>
+              </p>
+              <TbChevronDown />
             </div>
             <ul
               className={`${
                 dropDown ? "block" : "hidden"
-              }  bad dark:bg-grayshade-500 absolute p-4 top-[50px] right-0 left-0 [&>li]:list [&>a]:list z-50`}
+              } xl:w-full w-max bad dark:bg-grayshade-500 absolute p-4 -right-10 top-[48px] xl:right-0 xl:left-0  [&>li]:list [&>a]:list z-50`}
             >
-              <Link to="/dashboard/my-account"><li> Dashboard </li></Link>
-              <Link to="/dashboard/my-orders"><li>Payed Orders</li></Link>
+              <Link to="/dashboard/my-account">
+                <li> Dashboard </li>
+              </Link>
+              <Link to="/dashboard/my-orders">
+                <li>Payed Orders</li>
+              </Link>
               <hr className="mt-2 pt-2 border-t border-grayshade-200 dark:border-grayshade-200" />
               <li onClick={() => logOut()}>
                 <TbLogout2 className="mr-2" />
@@ -52,11 +67,11 @@ const UserActions = () => {
               </li>
             </ul>
           </button>
-          <Link className="relative lg:mx-6 md:mx-4 mx-3" to={"/checkout"}>
+          <Link className="relative lg:mx-6 md:mx-3 mx-2" to={"/checkout"}>
             <span className="absolute  text-sm -top-2 -right-2 p-1 w-5 h-5 text-center leading-none rounded-full bg-purpleshade-400 text-white">
               {ordersCount}
             </span>
-            <CiShoppingBasket className="text-4xl bad" />
+            <CiShoppingBasket className="xl:text-4xl text-3xl bad" />
           </Link>
         </>
       ) : (

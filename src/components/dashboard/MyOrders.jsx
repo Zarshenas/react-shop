@@ -37,7 +37,7 @@ const MyOrders = () => {
         <EmptyOrders />
       ) : (
         orders.map((order) => (
-          <div className="dark:bg-grayshade-500 border border-grayshade-50 dark:border-grayshade-300 rounded-lg my-4 p-8">
+          <div key={order._id} className="dark:bg-grayshade-500 border border-grayshade-50 dark:border-grayshade-300 rounded-lg my-4 p-8">
             <ul>
               {order.addedProducts.map((product) => (
                 <li key={product._id} className="p-2 grid grid-cols-3 border-b border-b-grayshade-50 dark:border-b-grayshade-300">

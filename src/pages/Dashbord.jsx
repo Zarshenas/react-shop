@@ -5,9 +5,12 @@ import { CiShoppingTag } from "react-icons/ci";
 import { Link, Outlet } from "react-router-dom";
 
 function Dashbord() {
-  const { logOut , userInfo: { firstName, lastName } } = useAuth();
+  const {
+    logOut,
+    userInfo: { firstName, lastName },
+  } = useAuth();
   return (
-    <div className="wrapper-full bg-lightColor-300 dark:bg-grayshade-300 flex justify-between">
+    <div className=" wrapper-full bg-lightColor-300 dark:bg-grayshade-300 flex justify-between">
       <aside className="w-3/12 h-max lg:p-20 bg-lightColor-100 dark:bg-grayshade-500 rounded-xl">
         <ul className="flex flex-col text-3xl [&>li]:list [&>a]:list [&>li]:p-4 [&>a]:p-4">
           <Link to={"my-account"}>
