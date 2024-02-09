@@ -1,29 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ThemeSwitcher from "../components/theme/ThemeSwitcher";
-import { FaGithub } from "react-icons/fa";
 import AbstractDesign from "../assets/AbstractDesign.svg";
 import UserActions from "../components/UserActions";
+import { FaGithub } from "react-icons/fa";
+import { RiMenu3Fill } from "react-icons/ri";
 
 function Header() {
   const [isNavOpen, openNavOpen] = useState(false);
+  const [stickNav, setStickNav] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setStickNav(true);
+      } else {
+        setStickNav(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const openNavHandler = () => {
     openNavOpen((prev) => !prev);
   };
 
   return (
-    <nav className=" fixed z-[100] xl:relative py-4 px-1 md:px-14 lg:px-30 w-full border-b border-grayshade-300 bg-lightColor-100 dark:bg-grayshade-500">
+    <nav
+      className={`${
+        stickNav ? "fixed" : "[position:initial]"
+      }  z-[100] xl:relative py-4 px-1 md:px-14 lg:px-30 w-full border-b border-grayshade-300 bg-lightColor-100 dark:bg-grayshade-500`}
+    >
       <div
         onClick={openNavHandler}
-        className="ham-container z-[99] xl:hidden w-12 h-12 absolute left-4 cursor-pointer label bad p-1 flex justify-around items-center flex-col"
+        className="ham-container z-[99] xl:hidden w-12 h-12 absolute left-4 top-2 cursor-pointer label bad p-1 flex justify-around items-center flex-col"
       >
-        <div className="w-8 h-2 bg-purpleshade-300 rounded-full"></div>
-        <div className="w-8 h-2 bg-purpleshade-300 rounded-full"></div>
-        <div className="w-8 h-2 bg-purpleshade-300 rounded-full"></div>
+        <RiMenu3Fill className="text-purpleshade-300 text-2xl font-bold" />
       </div>
       <img
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 max-h-[67px] lg:max-h-[81px] w-full h-full object-cover"
         src={AbstractDesign}
         alt="bg-header"
       />

@@ -30,9 +30,9 @@ function MyAccount() {
       }
 
       const updatedInfo = JSON.stringify(values);
-      console.log(updatedInfo)
+      console.log(updatedInfo);
       api
-        .post("/user/update", updatedInfo , {
+        .post("/user/update", updatedInfo, {
           headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
@@ -49,9 +49,11 @@ function MyAccount() {
     },
   });
   return (
-    <div className="flex ">
-      <form onSubmit={formik.handleSubmit} className="w-full">
-        <h1 className="text-2xl my-12 font-bold">Account Details</h1>
+    <div className="flex flex-col xl:flex-row">
+      <form onSubmit={formik.handleSubmit} className="w-full mx-2">
+        <h1 className="text-2xl my-12 font-bold text-center xl:text-left">
+          Account Details
+        </h1>
         <div className="form-section">
           <label htmlFor="firstName">First Name</label>
           <input

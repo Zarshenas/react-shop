@@ -40,7 +40,7 @@ function UpdatePassword() {
   });
   return (
     <form onSubmit={formik.handleSubmit} className="w-full">
-      <h1 className="text-2xl my-12 font-bold">Update Your Password</h1>
+      <h1 className="text-2xl my-12 font-bold text-center xl:text-left">Update Your Password</h1>
 
       <div className="form-section">
         <label htmlFor="currentPassword">Current Password</label>

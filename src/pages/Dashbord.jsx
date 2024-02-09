@@ -10,9 +10,9 @@ function Dashbord() {
     userInfo: { firstName, lastName },
   } = useAuth();
   return (
-    <div className=" wrapper-full bg-lightColor-300 dark:bg-grayshade-300 flex justify-between">
-      <aside className="w-3/12 h-max lg:p-20 bg-lightColor-100 dark:bg-grayshade-500 rounded-xl">
-        <ul className="flex flex-col text-3xl [&>li]:list [&>a]:list [&>li]:p-4 [&>a]:p-4">
+    <div className=" wrapper-full bg-lightColor-300 dark:bg-grayshade-300 flex flex-col xl:flex-row justify-between">
+      <aside className="xl:w-3/12 w-full min-w-max h-max p-14 bg-lightColor-100 dark:bg-grayshade-500 rounded-xl">
+        <ul className="flex flex-col font-bold text-2xl [&>li]:list [&>a]:list [&>li]:p-4 [&>a]:p-4">
           <Link to={"my-account"}>
             <TbUser className="mr-2" />
             <li>My Account</li>
@@ -30,8 +30,8 @@ function Dashbord() {
           </li>
         </ul>
       </aside>
-      <div className="w-9/12 lg:ml-24 lg:p-16 bg-lightColor-100 dark:bg-grayshade-500 rounded-xl">
-        <div className="text-3xl">
+      <div className="xl:w-9/12 w-full mt-2 xl:mt-0 xl:ml-20 xl:p-16 p-4 bg-lightColor-100 dark:bg-grayshade-500 rounded-xl">
+        <div className="text-3xl mb-6">
           <p>
             Hello{" "}
             <span className="text-purpleshade-400 font-extrabold">

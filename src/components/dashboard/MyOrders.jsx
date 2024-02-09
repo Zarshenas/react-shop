@@ -37,19 +37,34 @@ const MyOrders = () => {
         <EmptyOrders />
       ) : (
         orders.map((order) => (
-          <div key={order._id} className="dark:bg-grayshade-500 border border-grayshade-50 dark:border-grayshade-300 rounded-lg my-4 p-8">
+          <div
+            key={order._id}
+            className="dark:bg-grayshade-500 border border-grayshade-50 dark:border-grayshade-300 rounded-lg my-4 p-2  xl:p-8"
+          >
             <ul>
               {order.addedProducts.map((product) => (
-                <li key={product._id} className="p-2 grid grid-cols-3 border-b border-b-grayshade-50 dark:border-b-grayshade-300">
-                  <span className="font-semibold md:text-lg">{product.title}</span> 
-                  <span className="font-semibold md:text-lg place-self-center"> $ {product.price}</span> 
-                  <span className="font-semibold md:text-lg place-self-center">Quantity: {product.quantity}</span>
+                <li
+                  key={product._id}
+                  className="p-1 xl:p-2 text-sm lg:text-xl grid grid-cols-3 border-b border-b-grayshade-50 dark:border-b-grayshade-300"
+                >
+                  <span className="font-semibold">{product.title}</span>
+                  <span className="font-semibold place-self-center">
+                    {" "}
+                    $ {product.price}
+                  </span>
+                  <span className="font-semibold place-self-center">
+                    Quantity: {product.quantity}
+                  </span>
                 </li>
               ))}
             </ul>
             <div className="flex justify-evenly mb-0">
-              <p className="font-bold md:text-lg lable">Total Orders : {order.ordersCount}</p>
-              <p className="font-bold md:text-lg lable">Total Price : $ {order.totalPrice} </p>
+              <p className="font-bold lable">
+                Total Orders : {order.ordersCount}
+              </p>
+              <p className="font-bold lable">
+                Total Price : $ {order.totalPrice}{" "}
+              </p>
             </div>
           </div>
         ))
