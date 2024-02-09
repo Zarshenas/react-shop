@@ -1,18 +1,39 @@
 import { useCartCunsumer } from "../contexts/CartProvider";
 import AddToCart from "../components/AddToCart";
 import EmptyCart from "../components/EmptyCart";
+import api from "../services/axiosConfig";
+import { useAuth } from "../contexts/AuthenticateProvider";
+import { useEffect } from "react";
 
 export default function CheckoutPage() {
   const { cartState, dispatch } = useCartCunsumer();
-  console.log(cartState.addedProducts.length);
+  const { userInfo } = useAuth();
+
+  useEffect(() => {
+    if (!cartState.checkout) return;
+    const postOrder = async () => {
+      const orderData = {
+        ...cartState,
+        userInfo,
+      };
+      api.post("/order", orderData).then((res) => console.log(res));
+      dispatch({ type: "CLEAR" });
+    };
+    postOrder();
+  }, [cartState]);
+
+  const checkoutHandler = () => {
+    dispatch({ type: "CHECKOUT" });
+  };
+
   return (
     <>
       {cartState.checkout || !cartState.addedProducts.length ? (
         <EmptyCart />
       ) : (
         <div className=" wrapper flex flex-col-reverse xl:grid gap-8 lg:grid-cols-3 text-xl py-14">
-          <div className="h-min block border-collapse text-center p-5 col-start-1 col-end-3">
-            <div className="grid grid-cols-4 w-full">
+          <div className="h-min block border-collapse text-center p-0 sm:p-5 col-start-1 col-end-3">
+            <div className="hidden sm:grid grid-cols-4 w-full">
               <div className="text-left border-purpleshade-400 border-l-4 p-4">
                 PRODUCT
               </div>
@@ -23,8 +44,11 @@ export default function CheckoutPage() {
             <div className=" h-max p-1 from-purpleshade-400 from-0% to-30% bg-gradient-to-br to-grayshade-50 dark:to-grayshade-300 ">
               <div className="text-lg bg-white dark:bg-grayshade-500">
                 {cartState.addedProducts.map((product) => (
-                  <div className="grid grid-cols-4 py-4 xl:text-base text-sm">
-                    <div className=" text-left p-4 h-14">
+                  <div
+                    key={product.id}
+                    className="grid grid-cols-1 sm:grid-cols-4 py-4 xl:text-base text-sm"
+                  >
+                    <div className=" text-center sm:text-left p-4 h-14">
                       {product.title}
                     </div>
                     <div className=" justify-self-center p-4 h-14">
@@ -59,7 +83,7 @@ export default function CheckoutPage() {
             </div>
             <div className="text-center">
               <button
-                onClick={() => dispatch({ type: "CHECKOUT" })}
+                onClick={checkoutHandler}
                 className="h-10 px-4  font-semibold button"
               >
                 CHECKOUT

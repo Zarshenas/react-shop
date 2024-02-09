@@ -1,4 +1,4 @@
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import Product from "../components/Product";
 import { Triangle } from "react-loader-spinner";
 import { useProductConsumer } from "../contexts/ProductsProvider";
@@ -14,17 +14,16 @@ function Products() {
 
   const data = searchFilterHandler(query, productsList);
   useEffect(() => {
-    const check= setTimeout(() => {
+    const check = setTimeout(() => {
       if (!data.length && query.search) {
         setNotFound(true);
-        console.log(data)
-      }else{
-        setNotFound(false)
+      } else {
+        setNotFound(false);
       }
     }, 1);
-    return ()=>{
-      clearTimeout(check)
-    }
+    return () => {
+      clearTimeout(check);
+    };
   }, [data]);
 
   return (
@@ -33,7 +32,7 @@ function Products() {
         <Search query={{ query, setQuery }} />
         <div className="w-full flex lg:flex-row flex-col-reverse">
           <div className="lg:w-10/12 md:w-10/12 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 md:grid-cols-2 lg:gap-7 gap-4 m-auto">
-            {notFound && <NoProductFound/>}
+            {notFound && <NoProductFound />}
             {!data.length && !notFound ? (
               <Triangle
                 visible
