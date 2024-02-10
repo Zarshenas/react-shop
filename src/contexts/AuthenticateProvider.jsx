@@ -22,16 +22,23 @@ function AuthenticateProvider({ children }) {
   };
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+    
     const verifyCookie = async () => {
       if (!cookies.token) {
         setIsAuthenticated(false);
       }
-      const { data } = await api.post("/", {}, { withCredentials: true });
+      const { data } = await api.post("/", {}, { withCredentials: true , signal: signal  });
       const { status, userInfo } = data;
       setUserInfo(userInfo);
       return status ? setIsAuthenticated(true) : logOut();
     };
     verifyCookie();
+
+    return () => {
+      controller.abort();
+    };
   }, [isAuthenticated]);
 
   return (
