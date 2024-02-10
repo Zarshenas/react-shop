@@ -18,29 +18,30 @@ function CartProvider({ children }) {
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
-    if (!isAuthenticated) return;
-    const getUserCart = async () => {
+    if(isAuthenticated){
+
+      const getUserCart = async () => {
       await api
-        .get("/user/cart", { signal: signal })
-        .then(({ data }) => {
-          dispatch({ type: "GETFROMDB", payload: data });
-        })
-        .catch((err) => {
-          if (err.response.status === 404) {
-            return;
-          }
-        });
-    };
-    getUserCart();
-    return () => {
-      controller.abort();
-    };
+          .get("/user/cart", { signal: signal })
+          .then(({ data }) => {
+            dispatch({ type: "GETFROMDB", payload: data });
+          })
+          .catch((err) => {
+            if (err.response.status === 404) {
+              return;
+            }
+          });
+      };
+      getUserCart();
+      return () => {
+        controller.abort();
+      };
+    }
   }, []);
 
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
-    if (!isAuthenticated) return;
     const postCart = async () => {
       await api
         .post("/user/updatecart", { cartState }, { signal: signal })
