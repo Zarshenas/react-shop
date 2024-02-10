@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import Transition from "../../utils/transitions/transition";
+import Transition from "../../utils/transitions/Transition.jsx";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import illustration1 from "../../assets/illustration1.svg";
