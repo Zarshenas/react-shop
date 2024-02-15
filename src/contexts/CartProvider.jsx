@@ -16,26 +16,20 @@ function CartProvider({ children }) {
   const { isAuthenticated } = useAuth();
 
   useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    if(isAuthenticated){
-
+    if (isAuthenticated) {
       const getUserCart = async () => {
-      await api
-          .get("/user/cart", { signal: signal })
+        await api
+          .get("/user/cart")
           .then(({ data }) => {
             dispatch({ type: "GETFROMDB", payload: data });
           })
           .catch((err) => {
-            if (err.response.status === 404) {
-              return;
+            if (err.response.status === 404 || err.response.status === 401) {
+              console.log(err);
             }
           });
       };
       getUserCart();
-      return () => {
-        controller.abort();
-      };
     }
   }, []);
 
@@ -47,7 +41,6 @@ function CartProvider({ children }) {
         .post("/user/updatecart", { cartState }, { signal: signal })
         .catch((err) => {
           if (err.code === "ERR_CANCELED") return;
-          console.log(err);
         });
     };
     postCart();
