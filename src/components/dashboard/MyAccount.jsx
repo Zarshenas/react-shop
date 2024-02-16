@@ -30,7 +30,6 @@ function MyAccount() {
       }
 
       const updatedInfo = JSON.stringify(values);
-      console.log(updatedInfo);
       api
         .post("/user/update", updatedInfo, {
           headers: {

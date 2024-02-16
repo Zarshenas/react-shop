@@ -13,35 +13,36 @@ function AuthenticateProvider({ children }) {
     email: "",
     _id: "",
   });
-  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+  let [cookies, setCookie, removeCookie] = useCookies(["token"]);
   const [isAuthenticated, setIsAuthenticated] = useState(!!cookies.token);
   const navigate = useNavigate();
 
   const logOut = () => {
-    removeCookie("token", { path: "/" });
-    setIsAuthenticated(false);
-    setUserInfo({
-      firstName: "",
-      lastName: "",
-      email: "",
-      _id: "",
+    api.get("/auth/logout").then((res) => {
+      removeCookie("token", { path: "/" });
+      setUserInfo({
+        firstName: "",
+        lastName: "",
+        email: "",
+        _id: "",
+      });
+      setIsAuthenticated(false);
+      navigate("/");
     });
-    navigate("/");
   };
 
   useEffect(() => {
+    if (!cookies.token) {
+      setIsAuthenticated(false);
+    }
     const verifyCookie = async () => {
-      if (!cookies.token) setIsAuthenticated(false);
-
       const { data } = await api.post("/", {}, { withCredentials: true });
       const { status, userInfo } = data;
-      console.log(userInfo);
-      console.log(status);
       setUserInfo(userInfo);
       return status ? setIsAuthenticated(true) : logOut();
     };
     verifyCookie();
-  }, [isAuthenticated]);
+  }, [isAuthenticated, cookies]);
 
   return (
     <AuthContext.Provider

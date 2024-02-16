@@ -21,11 +21,12 @@ function Login() {
         headers: {
           "Content-Type": "application/json",
         },
+        withCredentials:true
       }).then((res) => {
         if (res.status === 200) {
           toast.success("Login successfull!", { duration: 4000 });
+          setIsAuthenticated(true)
           setTimeout(() => {
-            setIsAuthenticated(true)
             navigate("/" , {replace:true});
           }, 1000);
         }
