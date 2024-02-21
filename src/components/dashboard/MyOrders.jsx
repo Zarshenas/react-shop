@@ -8,7 +8,6 @@ const MyOrders = () => {
   const { isAuthenticated } = useAuth();
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsloading] = useState(true);
-  console.log(orders);
   useEffect(() => {
     const getOrders = async () => {
       api.get("/user/myorders").then(({ data, status }) => {

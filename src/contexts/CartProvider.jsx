@@ -16,21 +16,18 @@ function CartProvider({ children }) {
   const { isAuthenticated } = useAuth();
 
   useEffect(() => {
-    if (isAuthenticated) {
-      const getUserCart = async () => {
-        await api
-          .get("/user/cart")
-          .then(({ data }) => {
-            dispatch({ type: "GETFROMDB", payload: data });
-          })
-          .catch((err) => {
-            if (err.response.status === 404 || err.response.status === 401) {
-              console.log(err);
-            }
-          });
-      };
-      getUserCart();
-    }
+    if (!isAuthenticated) return ; 
+    const getUserCart = async () => {
+      await api
+        .get("/user/cart")
+        .then(({ data }) => dispatch({ type: "GETFROMDB", payload: data }))
+        .catch((err) => {
+          if (err.response.status === 404) {
+            return;
+          }
+        });
+    };
+    getUserCart();
   }, []);
 
   useEffect(() => {

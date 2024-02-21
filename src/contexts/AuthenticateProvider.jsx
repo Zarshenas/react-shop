@@ -32,17 +32,12 @@ function AuthenticateProvider({ children }) {
   };
 
   useEffect(() => {
-    if (!cookies.token) {
-      setIsAuthenticated(false);
-    }
-    const verifyCookie = async () => {
-      const { data } = await api.post("/", {}, { withCredentials: true });
-      const { status, userInfo } = data;
-      setUserInfo(userInfo);
-      return status ? setIsAuthenticated(true) : logOut();
-    };
-    verifyCookie();
-  }, [isAuthenticated, cookies]);
+      api.get("/", { withCredentials: true }).then(({ data }) => {
+        const { status, userInfo } = data;
+        setUserInfo(userInfo);
+        return status ? setIsAuthenticated(true) : logOut();
+      });
+  }, [isAuthenticated]);
 
   return (
     <AuthContext.Provider

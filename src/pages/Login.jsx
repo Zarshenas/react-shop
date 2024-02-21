@@ -1,14 +1,14 @@
 import React from "react";
 import { useFormik } from "formik";
 import { loginValidator as validate } from "../utils/helpers/formValidator";
-import { Link , useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../services/axiosConfig";
 import toast from "react-hot-toast";
 import { useAuth } from "../contexts/AuthenticateProvider";
 
 function Login() {
   const navigate = useNavigate();
-  const {  setIsAuthenticated } = useAuth();
+  const { setIsAuthenticated } = useAuth();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -17,27 +17,30 @@ function Login() {
     validate,
     onSubmit: (values) => {
       const jsonUser = JSON.stringify(values);
-      api.post("/auth/login", jsonUser, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials:true
-      }).then((res) => {
-        if (res.status === 200) {
-          toast.success("Login successfull!", { duration: 4000 });
-          setIsAuthenticated(true)
-          setTimeout(() => {
-            navigate("/" , {replace:true});
-          }, 1000);
-        }
-      }).catch(err =>{
-        if( err.response.status === 404 || err.response.status === 401){
-          toast.error(err.response.data, { duration: 4000 });
-        }else{
-          toast.error("Somthing went wrong", { duration: 4000 });
-          console.log(err.response.data)
-        }
-      })
+      api
+        .post("/auth/login", jsonUser, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            toast.success("Login successfull!", { duration: 4000 });
+            setIsAuthenticated(true);
+            setTimeout(() => {
+              navigate("/", { replace: true });
+            }, 500);
+          }
+        })
+        .catch((err) => {
+          if (err.response.status === 404 || err.response.status === 401) {
+            toast.error(err.response.data, { duration: 4000 });
+          } else {
+            toast.error("Somthing went wrong", { duration: 4000 });
+            console.log(err.response.data);
+          }
+        });
     },
   });
   return (
