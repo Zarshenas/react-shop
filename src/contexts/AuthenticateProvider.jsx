@@ -27,7 +27,7 @@ function AuthenticateProvider({ children }) {
         _id: "",
       });
       setIsAuthenticated(false);
-      navigate("/");
+      navigate(1);
     });
   };
 

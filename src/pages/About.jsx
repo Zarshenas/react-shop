@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import aboutmeImage from "../assets/aboutmeImage.png";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -97,9 +96,6 @@ function About() {
             <FaGithub className="hover:text-black dark:hover:text-white  transition-all ease duration-300" />
           </Link>
         </div>
-      </div>
-      <div className="w-3/4 md:w-90 md:pl-4 lg:pl-20">
-        <img data-aos="fade-up" className="rounded-3xl" src={aboutmeImage} alt="aboutimg" />
       </div>
     </div>
   );

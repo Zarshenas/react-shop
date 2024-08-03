@@ -4,9 +4,6 @@ import { FaGithub } from "react-icons/fa";
 
 function Footer() {
   return (
-    // <div className='w-full dark:bg-grayshade-400 text-xl py-7 h-20 text-center'>
-    //     Made with <span className='text-purpleshade-300 '>♥</span> by <a className=' font-extrabold text-purpleshade-300' href="https://github.com/Siza36" target='_blank'>Siza</a>
-    // </div>
     <footer>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mt-20">
         {/* Top area: Blocks */}
@@ -227,7 +224,7 @@ function Footer() {
           <ul className="flex mb-4 md:order-1 md:ml-4 md:mb-0">
             <li className="ml-4">
               <Link
-                to="https://github.com/Siza36"
+                to="https://github.com/Zarshenas"
                 target="_blank"
                 className="flex justify-center items-center text-grayshade-400  hover:text-grayshade-50 bg-white hover:bg-white-100 rounded-full shadow-md transition duration-150 ease-in-out"
                 aria-label="github"
@@ -242,7 +239,7 @@ function Footer() {
             Made with <span className='text-purpleshade-300 '>♥</span> by{" "}
             <a
               className="text-purpleshade-300 hover:underline"
-              href="https://github.com/Siza36"
+              href="https://github.com/Zarshenas"
             >
               Siza
             </a>
