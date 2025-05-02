@@ -10,34 +10,33 @@ function Footer() {
         <div className="grid sm:grid-cols-12 gap-8 py-8 md:py-12 border-t border-grayshade-50">
           {/* 1st block */}
           <div className="sm:col-span-12 lg:col-span-3">
-            
             <div className="text-sm text-grayshade-400 dark:text-lightColor-100">
               <Link
                 to="#"
                 className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 hover:underline transition duration-150 ease-in-out"
               >
-                Terms
+                شرایط و ضوابط
               </Link>{" "}
               ·{" "}
               <Link
                 to="#"
                 className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 hover:underline transition duration-150 ease-in-out"
               >
-                Privacy Policy
+                حریم خصوصی
               </Link>
             </div>
           </div>
 
           {/* 2nd block */}
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h6 className="text-purpleshade-300 font-bold mb-2">Products</h6>
+            <h6 className="text-purpleshade-300 font-bold mb-2">محصولات</h6>
             <ul className="text-sm">
               <li className="mb-2">
                 <Link
                   to="#"
                   className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 transition duration-150 ease-in-out"
                 >
-                  Web Studio
+                  استودیو وب
                 </Link>
               </li>
               <li className="mb-2">
@@ -45,7 +44,7 @@ function Footer() {
                   to="#"
                   className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 transition duration-150 ease-in-out"
                 >
-                  DynamicBox Flex
+                  داینامیک باکس فلکس
                 </Link>
               </li>
               <li className="mb-2">
@@ -53,7 +52,7 @@ function Footer() {
                   to="#"
                   className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 transition duration-150 ease-in-out"
                 >
-                  Programming Forms
+                  فرم‌های برنامه‌نویسی
                 </Link>
               </li>
               <li className="mb-2">
@@ -61,7 +60,7 @@ function Footer() {
                   to="#"
                   className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 transition duration-150 ease-in-out"
                 >
-                  Integrations
+                  یکپارچه‌سازی‌ها
                 </Link>
               </li>
               <li className="mb-2">
@@ -69,7 +68,7 @@ function Footer() {
                   to="#"
                   className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 transition duration-150 ease-in-out"
                 >
-                  Command-line
+                  خط فرمان
                 </Link>
               </li>
             </ul>
@@ -77,14 +76,14 @@ function Footer() {
 
           {/* 3rd block */}
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h6 className="text-purpleshade-300 font-bold mb-2">Resources</h6>
+            <h6 className="text-purpleshade-300 font-bold mb-2">منابع</h6>
             <ul className="text-sm">
               <li className="mb-2">
                 <Link
                   to="#"
                   className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 transition duration-150 ease-in-out"
                 >
-                  Documentation
+                  مستندات
                 </Link>
               </li>
               <li className="mb-2">
@@ -92,7 +91,7 @@ function Footer() {
                   to="#"
                   className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 transition duration-150 ease-in-out"
                 >
-                  Tutorials & Guides
+                  آموزش‌ها و راهنماها
                 </Link>
               </li>
               <li className="mb-2">
@@ -100,7 +99,7 @@ function Footer() {
                   to="#"
                   className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 transition duration-150 ease-in-out"
                 >
-                  Blog
+                  وبلاگ
                 </Link>
               </li>
               <li className="mb-2">
@@ -108,7 +107,7 @@ function Footer() {
                   to="#"
                   className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 transition duration-150 ease-in-out"
                 >
-                  Support Center
+                  مرکز پشتیبانی
                 </Link>
               </li>
               <li className="mb-2">
@@ -116,7 +115,7 @@ function Footer() {
                   to="#"
                   className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 transition duration-150 ease-in-out"
                 >
-                  Partners
+                  همکاران
                 </Link>
               </li>
             </ul>
@@ -124,14 +123,14 @@ function Footer() {
 
           {/* 4th block */}
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h6 className="text-purpleshade-300 font-bold mb-2">Company</h6>
+            <h6 className="text-purpleshade-300 font-bold mb-2">شرکت</h6>
             <ul className="text-sm">
               <li className="mb-2">
                 <Link
                   to="#"
                   className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 transition duration-150 ease-in-out"
                 >
-                  Home
+                  خانه
                 </Link>
               </li>
               <li className="mb-2">
@@ -139,7 +138,7 @@ function Footer() {
                   to="#"
                   className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 transition duration-150 ease-in-out"
                 >
-                  About us
+                  درباره ما
                 </Link>
               </li>
               <li className="mb-2">
@@ -147,7 +146,7 @@ function Footer() {
                   to="#"
                   className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 transition duration-150 ease-in-out"
                 >
-                  Company values
+                  ارزش‌های شرکت
                 </Link>
               </li>
               <li className="mb-2">
@@ -155,7 +154,7 @@ function Footer() {
                   to="#"
                   className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 transition duration-150 ease-in-out"
                 >
-                  Pricing
+                  قیمت‌گذاری
                 </Link>
               </li>
               <li className="mb-2">
@@ -163,7 +162,7 @@ function Footer() {
                   to="#"
                   className="text-grayshade-400 dark:text-lightColor-100 hover:text-grayshade-50 transition duration-150 ease-in-out"
                 >
-                  Privacy Policy
+                  سیاست حفظ حریم خصوصی
                 </Link>
               </li>
             </ul>
@@ -171,22 +170,22 @@ function Footer() {
 
           {/* 5th block */}
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-3">
-            <h6 className="text-purpleshade-300 font-bold mb-2">Subscribe</h6>
+            <h6 className="text-purpleshade-300 font-bold mb-2">عضویت در خبرنامه</h6>
             <p className="text-sm text-grayshade-400 dark:text-lightColor-100 mb-4">
-              Get the latest news and articles to your inbox every month.
+            جدیدترین اخبار و مقالات را هر ماه در ایمیل خود دریافت کنید.
             </p>
             <form>
               <div className="flex flex-wrap mb-4">
                 <div className="w-full">
                   <label className="block text-sm sr-only" htmlFor="newsletter">
-                    Email
+                    ایمیل خود را وارد کنید
                   </label>
                   <div className="relative flex items-center max-w-xs">
                     <input
                       id="newsletter"
                       type="email"
                       className="form-input w-full dark:bg-grayshade-500 p-4 focus:outline-none px-3 bold-2 pr-12 text-sm"
-                      placeholder="Your email"
+                      placeholder="ایمیل شما"
                       required
                     />
                     <button
@@ -229,19 +228,19 @@ function Footer() {
                 className="flex justify-center items-center text-grayshade-400  hover:text-grayshade-50 bg-white hover:bg-white-100 rounded-full shadow-md transition duration-150 ease-in-out"
                 aria-label="github"
               >
-                <FaGithub  className="w-8 h-8 fill-current p-1" />
+                <FaGithub className="w-8 h-8 fill-current p-1" />
               </Link>
             </li>
           </ul>
 
           {/* Copyrights note */}
           <div className="text-sm text-grayshade-400 dark:text-lightColor-100 mr-4">
-            Made with <span className='text-purpleshade-300 '>♥</span> by{" "}
+             ساخته شده با<span className="text-purpleshade-300 "> ♥ </span> توسط{" "}
             <a
               className="text-purpleshade-300 hover:underline"
               href="https://github.com/Zarshenas"
             >
-              Siza
+              علی زرشناس
             </a>
           </div>
         </div>
