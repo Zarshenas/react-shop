@@ -46,7 +46,7 @@ function Signup() {
       <div className="p-8 mt-[8%] w-full h-max bg-lightColor-100 border-4 border-lightColor-300 dark:border-grayshade-300 dark:bg-grayshade-400 rounded-lg">
         <div className="text-center mb-4">
           <h1 className="text-purpleshade-400 font-extrabold text-4xl mb-3">
-            Sign Up
+            ثبت نام
           </h1>
         </div>
         <form
@@ -54,7 +54,7 @@ function Signup() {
           className="grid md:grid-cols-2 content-center"
         >
           <div className="form-section">
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor="firstName">نام</label>
             <input
               id="firstName"
               name="firstName"
@@ -71,7 +71,7 @@ function Signup() {
           </div>
 
           <div className="form-section">
-            <label htmlFor="lastName">Last Name</label>
+            <label htmlFor="lastName">نام خانوادگی</label>
             <input
               id="lastName"
               name="lastName"
@@ -88,7 +88,7 @@ function Signup() {
           </div>
 
           <div className="form-section">
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="email">ایمیل</label>
             <input
               id="email"
               name="email"
@@ -105,7 +105,7 @@ function Signup() {
           </div>
 
           <div className="form-section">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">رمزعبور</label>
             <input
               id="password"
               name="password"
@@ -122,8 +122,8 @@ function Signup() {
           </div>
 
           <div className="form-section items-center md:col-span-2">
-            <button type="submit">Sign Up</button>
-            <Link to={"/auth/login"}>Login</Link>
+            <button type="submit">ثبت نام</button>
+            <Link to={"/auth/login"}>ورود</Link>
           </div>
         </form>
       </div>

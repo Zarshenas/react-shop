@@ -42,7 +42,7 @@ const UserActions = () => {
             >
               <TbUser className="text-2xl xl:text-2xl" />
               <p className="hidden xl:block">
-                welcome{" "}
+                خوش آمدید{" "}
                 <span className="dark:text-purpleshade-100 text-purpleshade-400">
                   {userInfo.firstName && userInfo.firstName}
                 </span>
@@ -55,15 +55,15 @@ const UserActions = () => {
               } xl:w-full w-max bad dark:bg-grayshade-500 absolute p-4 -right-10 top-[48px] xl:right-0 xl:left-0  [&>li]:list [&>a]:list z-50`}
             >
               <Link to="/dashboard/my-account">
-                <li> Dashboard </li>
+                <li> داشبورد </li>
               </Link>
               <Link to="/dashboard/my-orders">
-                <li>Payed Orders</li>
+                <li>سفارش‌ های پرداخت‌ شده</li>
               </Link>
               <hr className="mt-2 pt-2 border-t border-grayshade-200 dark:border-grayshade-200" />
               <li onClick={() => logOut()}>
                 <TbLogout2 className="mr-2" />
-                <span>Logout</span>
+                <span>خروج از حساب</span>
               </li>
             </ul>
           </button>
@@ -77,18 +77,18 @@ const UserActions = () => {
       ) : (
         <>
           <Link
-            className="text-sm md:text-base xl:text-xl mx-2 flex items-center bad"
+            className="text-sm md:text-base xl:text-xl mx-2 flex flex-row-reverse items-center bad"
             to="/auth/login"
           >
             <TbLogin2 className="mr-2" />
-            Login
+            ورود
           </Link>
           <Link
-            className="text-sm md:text-base xl:text-xl mx-2 flex items-center bad"
+            className="text-sm md:text-base xl:text-xl mx-2 flex flex-row-reverse items-center bad"
             to="/auth/signup"
           >
             <TbUserPlus className="mr-2" />
-            Sign Up
+            ثبت نام
           </Link>
         </>
       )}

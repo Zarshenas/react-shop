@@ -48,12 +48,12 @@ function Login() {
       <div className="p-8 mt-[8%] w-full h-max bg-lightColor-100 border-4 border-lightColor-300 dark:border-grayshade-300 dark:bg-grayshade-400 rounded-lg">
         <div className="text-center mb-4">
           <h1 className="text-purpleshade-400 font-extrabold text-4xl mb-3">
-            Login
+            ورود
           </h1>
         </div>
         <form onSubmit={formik.handleSubmit} className=" content-center">
           <div className="form-section">
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="email">ایمیل</label>
             <input
               id="email"
               name="email"
@@ -70,7 +70,7 @@ function Login() {
           </div>
 
           <div className="form-section">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">رمز عبور</label>
             <input
               id="password"
               name="password"
@@ -86,8 +86,8 @@ function Login() {
             </span>
           </div>
           <div className="form-section items-center md:col-span-2">
-            <button type="submit">Login</button>
-            <Link to={"/auth/signup"}>Sign Up</Link>
+            <button type="submit">ورود</button>
+            <Link to={"/auth/signup"}>ثبت نام</Link>
           </div>
         </form>
       </div>

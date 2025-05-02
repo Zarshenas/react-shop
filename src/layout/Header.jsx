@@ -47,12 +47,12 @@ function Header() {
         src={AbstractDesign}
         alt="bg-header"
       />
-      <div className="w-full flex items-center justify-end min-[490px]:justify-around">
+      <div className="w-full flex flex-row items-center justify-end min-[490px]:justify-around">
         <Link
           className="lg:text-5xl md:text-4xl sm:text-xl font-extrabold xl:mr-8 z-20"
           to={"/"}
         >
-          <h1>React Shop</h1>
+          <h1>نام فروشگاه</h1>
         </Link>
         <div
           className={`z-[97] ${
@@ -62,26 +62,26 @@ function Header() {
           <ul className="flex flex-col items-center xl:flex-row min-w-max w-screen xl:w-[400px] xl:justify-around text-xl">
             <li className="my-5 xl:my-2">
               <Link to="/" onClick={() => openNavOpen(false)}>
-                Home
+                خانه
               </Link>
             </li>
             <li className="my-5 xl:my-2">
               <Link to="/products" onClick={() => openNavOpen(false)}>
-                Products
+                محصولات
               </Link>
             </li>
             <li className="my-5 xl:my-2">
               <Link to="/about" onClick={() => openNavOpen(false)}>
-                About
+                درباره
               </Link>
             </li>
           </ul>
         </div>
 
-        <div className="flex items-center justify-between text-md xl:text-xl">
+        <div className="flex flex-row-reverse items-center justify-between text-md xl:text-xl">
           <UserActions />
           <div
-            className={` justify-start items-center z-[98] xl:flex ${
+            className={` justify-start items-center z-[98] xl:flex xl:flex-row-reverse ${
               isNavOpen ? "flex" : "hidden"
             }`}
           >
