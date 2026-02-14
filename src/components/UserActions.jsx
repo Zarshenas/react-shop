@@ -17,7 +17,7 @@ const UserActions = () => {
   const {
     cartState: { ordersCount },
   } = useCartCunsumer();
-
+    console.log(userInfo);
   const ref = useRef();
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -44,7 +44,7 @@ const UserActions = () => {
               <p className="hidden xl:block">
                 welcome{" "}
                 <span className="dark:text-purpleshade-100 text-purpleshade-400">
-                  {userInfo.firstName && userInfo.firstName}
+                  {userInfo?.firstName}
                 </span>
               </p>
               <TbChevronDown />

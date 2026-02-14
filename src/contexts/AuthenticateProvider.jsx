@@ -31,13 +31,31 @@ function AuthenticateProvider({ children }) {
     });
   };
 
-  useEffect(() => {
-      api.get("/", { withCredentials: true }).then(({ data }) => {
-        const { status, userInfo } = data;
-        setUserInfo(userInfo);
-        return status ? setIsAuthenticated(true) : logOut();
-      });
-  }, [isAuthenticated]);
+    useEffect(() => {
+        const checkAuth = async () => {
+            try {
+                const { data } = await api.get("/", { withCredentials: true });
+
+                if (data.status && data.userInfo) {
+                    setUserInfo({
+                        firstName: data.userInfo.firstName,
+                        lastName: data.userInfo.lastName,
+                        email: data.userInfo.email,
+                        _id: data.userInfo._id,
+                    });
+
+                    setIsAuthenticated(true);
+                } else {
+                    setIsAuthenticated(false);
+                }
+            } catch (error) {
+                setIsAuthenticated(false);
+            }
+        };
+
+        checkAuth();
+
+    }, []);
 
   return (
     <AuthContext.Provider
