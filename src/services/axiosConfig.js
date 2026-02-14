@@ -3,8 +3,8 @@ import axios from "axios";
 const api = axios.create({
   // default configurations
   // baseURL: "https://react-shop-backend.liara.run",
-  baseURL: "http://localhost:3000",
-  // baseURL: "https://react-shop-backend-seven.vercel.app",
+  // baseURL: "http://localhost:3000",
+  baseURL: "https://react-shop-backend-seven.vercel.app",
   withCredentials: true,
 });
 
